@@ -2,7 +2,7 @@
   require_once "model/connectionDB.php";
   $db = new ConnectionDB();
 
-  $consultaID = $db->getPacienteByCpf("987654321-98");
+  $consultaID = $db->getPacienteByCpf("123456789-12");
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,6 @@
   <title>Document</title>
 </head>
 <body>
-  <?php var_dump($consultaID)?>
+  <?php print_r($consultaID)?>
 </body>
 </html>
