@@ -4,30 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./frontend/src/css/index.css">
+    <link rel="stylesheet" href="./frontend/src/css/reset.css">
     <title>Prontuário médico - login</title>
   </head>
   <body>
     <header>
-      <img src="" alt="logo" />
+      <img src="./frontend/src/img/logo-teste.png" alt="logo" />
       <nav>
-        <ul>
+        <ul class="ul-nav">
+          <li><a href="">Link</a></li>
+          <li><a href="">Link</a></li>
           <li><a href="">Link</a></li>
         </ul>
       </nav>
     </header>
-    <div>
+    <main>
       <div class="mainDiv">
-        <div class="mainDiv-imgArea"></div>
-        <div class="mainDiv-formArea">
-          <h1 class="title-form">Login</h1>
+        <section class="mainDiv-imgArea">
+          <img src="./frontend/src/img/logo-teste.png" alt="logo" />
+        </section>
+        <section class="mainDiv-formArea">
+          <h1 class="title-form">LOGIN</h1>
           <form class="mainDiv-form" action="" method="post">
             <input type="text" placeholder="CRM ou CPF">
             <input type="password" placeholder="SENHA" id="password">
-            <span class="forgotPassword-span"><a href="">Esqueci a senha</a></span>
-            <button type="submit">ENTRAR</button>
+            <button class="btn-submit-login" type="submit">ENTRAR</button>
           </form>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   </body>
 </html>
