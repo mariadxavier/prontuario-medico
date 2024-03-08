@@ -1,6 +1,7 @@
 <?php
   require __DIR__."/../vendor/autoload.php";
   use Kreait\Firebase\Factory;
+  use Ramsey\Uuid\Uuid;
 
   class ConnectionDB {
     private Factory $factoryDB;
@@ -55,6 +56,24 @@
           throw new Exception("Este cpf não foi encontrado.");
         }
         return $paciente;
+      }catch(Exception $err){
+        return $err->getMessage();
+      }
+    }
+
+    public function setNewPaciente($nome, $cep, $cpf, $sexo){
+      $uuid = Uuid::uuid4();
+      try{
+        $paciente = $this->connectionDB->getReference("Paciente/".$uuid)->set([
+          "nome" => $nome,
+          "cep"=> $cep,
+          "cpf" => $cpf,
+          "sexo" => $sexo
+        ]);
+        if(!$paciente){
+          throw new Exception("Falha ao cadastrar o paciente.");
+        }
+        return "paciente criado com sucesso";
       }catch(Exception $err){
         return $err->getMessage();
       }
