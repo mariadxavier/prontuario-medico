@@ -1,12 +1,10 @@
-body {
-    max-height: 100vh;
-}
 main {
     /* height: 85vh; */
     background-image: url(../img/bg-index.png);
     background-size: 100%;
     background-repeat: no-repeat;
     padding: 50px;
+    height: 85vh;
 }
 
 header {
@@ -37,6 +35,10 @@ header nav .ul-nav li a {
     padding: 15px;
     line-height: 23px;
     font-weight: 275;
+}
+
+header nav .ul-nav li a:hover {
+    color: var(--color-orange);
 }
 
 .mainDiv {
