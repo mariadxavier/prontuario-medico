@@ -2,15 +2,16 @@
 header {
     display: flex;
     justify-content: center;
-
+    box-shadow: 1px 5px 46px -12px rgba(0,0,0,0.75);
 }
 /* Container do header */
 .header-container {
     display: flex;
     justify-content: space-between;
     width: 100vw;
+    height: 17vh;
     max-width: 1900px;
-    padding: 30px 60px;
+    padding: 0px 60px;
 }
 
 /* Logo */

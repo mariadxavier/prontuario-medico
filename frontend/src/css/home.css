@@ -1,0 +1,68 @@
+.section-apresentation {
+    display: flex;
+    height: 83vh;
+    gap: 5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* Frase */
+.apresentation-text h1 {
+    font-size: 5rem;
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 3px;
+    color: var(--color-blue);
+}
+/* Fim Frase */
+
+/* Div Pesquisa */
+.apresentation-search {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.apresentation-search img{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 30vh;
+    object-fit: cover;
+}
+
+/* Formulário / Barra de pesquisa */
+.apresentation-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search-user {
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    border-radius: 100px;
+    padding: 20px;
+    border: none;
+
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+#search-button {
+    position: relative;
+    left: 205px;
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    border: none;
+    background: var(--color-blue);
+
+    font-size: 1rem;
+    color: var(--color-white);
+    font-weight: 600;
+}
+/* Formulário / Barra de pesquisa */
