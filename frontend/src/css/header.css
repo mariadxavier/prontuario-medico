@@ -1,0 +1,95 @@
+/* Header */
+header {
+    display: flex;
+    justify-content: center;
+
+}
+/* Container do header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    max-width: 1900px;
+    padding: 30px 60px;
+}
+
+/* Logo */
+.header-div-logo {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.header-div-logo img {
+    height: 10vh;
+}
+.header-div-logo p {
+    font-size: 1.5rem;
+}
+/* Fim logo */
+
+/* Container dentro do header: para separar a logo dos links */
+.header-div-container {
+    display: flex;
+    align-items: center;
+    width: 44vw;
+    justify-content: space-between;
+}
+/* Fim Container dentro do header */
+
+/* Links */
+.container-ul-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30vw;
+}
+.links-li-link {
+    list-style-type: none;
+    cursor: pointer;
+}
+.links-li-link a {
+    text-decoration: none;
+    color: var(--color-gray);
+    font-weight: 600;
+    transition: .3s;
+}
+.links-li-link a:hover {
+    color: var(--color-blue);
+}
+
+#novo-paciente-link a {
+    background: var(--color-blue);
+    padding: 8px 35px;
+    border-radius: 50px;
+    color: var(--color-white);
+    transition: .3s;
+}
+#novo-paciente-link a:hover {
+    background: var(--color-mediumBlue);
+}
+/* Fim links */
+
+/* Nome/Menu User */
+.container-div-user {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.container-div-user p {
+    font-size: 1rem;
+    color: var(--color-gray);
+    font-weight: 600;
+}
+.container-div-user p::after{
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 100px;
+    background: var(--color-blue);
+}
+.container-div-user img {
+    height: 10px;
+}
+/* Fim Nome/Menu User */
