@@ -1,5 +1,4 @@
 main {
-    /* height: 85vh; */
     background-image: url(../img/bg-index.png);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -7,45 +6,11 @@ main {
     height: 85vh;
 }
 
-header {
-    display: flex;
-    height: 15vh;
-    background-color: var(--color-white);
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    padding: 0 50px;
-    z-index: 1;
-}
-
-header img {
-    width: 64px;
-    height: 64px;
-}
-
-header nav .ul-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    list-style: none;
-}
-
-header nav .ul-nav li a {
-    color: var(--color-black);
-    padding: 15px;
-    line-height: 23px;
-    font-weight: 275;
-}
-
-header nav .ul-nav li a:hover {
-    color: var(--color-orange);
-}
-
 .mainDiv {
     display: flex;
     height: 68vh;
     border-radius: 20px;
-    margin: 5vh 5wh;
+    margin: 5vh 5vw;
 }
 
 .mainDiv .mainDiv-imgArea {
@@ -109,4 +74,3 @@ header nav .ul-nav li a:hover {
     width: 70%;
     margin-top: 30px;
 }
-
