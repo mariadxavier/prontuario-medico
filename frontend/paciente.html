@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Prontuário Médico</title>
+        <!-- Folha de estilo: -->
+        <link rel="stylesheet" href="./src/css/paciente.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="header-div-logo">
+                    <img src="./src/img/logo.svg" alt="" />
+                    <p class="logo-p-name">UniSOS</p>
+                </div>
+                <div class="header-div-container">
+                    <ul class="container-ul-links">
+                        <li class="links-li-link">
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="links-li-link">
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="links-li-link" id="novo-paciente-link">
+                            <a href="#">Novo Paciente</a>
+                        </li>
+                    </ul>
+                    <div class="container-div-user">
+                        <p class="user-p-name">Nome Medico</p>
+                        <img
+                            class="user-img-chevron"
+                            src="./src/img/chevron.svg"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="mainDiv">
+                <aside class="aside-dados-paciente">
+                    <h2 class="aside-title">DADOS</h2>
+                    <div class="aside-conteudo">
+                        <nav class="aside-nav-dados-paciente">
+                            <ul>
+                                <li class="aba-aberta">
+                                    <a href="">PESSOAL</a>
+                                </li>
+                                <li class=""><a href="">HISTÓRICO</a></li>
+                            </ul>
+                        </nav>
+                        <div class="aside-buttons">
+                            <button id="button-consulta">CONSULTA</button>
+                            <button id="button-busca">BUSCA</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="div-show-dados-paciente">
+                    <div class="dados-pessoais-paciente">
+                        <div class="area-caracteristicas-paciente">
+                            <img
+                                id="pacient-profile-img"
+                                src="./src/img/bg-index.png"
+                                alt="Foto do paciente"
+                            />
+                            <div class="caracteristicas-paciente">
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="nome-paciente"
+                                        >Nome:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="nome-paciente"
+                                        >Primeiro Paciente</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="idade-paciente"
+                                        >Idade:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="idade-paciente"
+                                        >22</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="genero-paciente"
+                                        >Gênero:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="genero-paciente"
+                                        >M</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="raca-paciente"
+                                        >Raça:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="raca-paciente"
+                                        >Pardo</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="peso-paciente"
+                                        >Peso (kg):
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="peso-paciente"
+                                        >80</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="altura-paciente"
+                                        >Altura (m):
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="altura-paciente"
+                                        >1.73</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="sangue-paciente"
+                                        >Sangue:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="sangue-paciente"
+                                        >A+</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="mae-paciente"
+                                        >Mãe:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="mae-paciente"
+                                        >Não consta</span
+                                    >
+                                </div>
+
+                                <div class="item-caracteristicas-paciente">
+                                    <label
+                                        class="label-dados-paciente"
+                                        for="pai-paciente"
+                                        >Pai:
+                                    </label>
+                                    <span
+                                        class="conteudo-dados-paciente"
+                                        id="pai-paciente"
+                                        >Não consta</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contatos-paciente">
+                            <div class="item-contatos-paciente">
+                                <label
+                                    class="label-dados-paciente"
+                                    for="celular-paciente"
+                                    >Celular:
+                                </label>
+                                <span
+                                    class="conteudo-dados-paciente"
+                                    id="celular-paciente"
+                                    >(99)99999-9999</span
+                                >
+                            </div>
+
+                            <div class="item-contatos-paciente">
+                                <label
+                                class="label-dados-paciente"
+                                for="email-paciente"
+                                >E-mail:
+                            </label>
+                            <span
+                                class="conteudo-dados-paciente"
+                                id="email-paciente"
+                                >testeemail@gmail.com</span
+                            > </div>
+
+                            <div class="item-contatos-paciente">
+                                <label
+                                class="label-dados-paciente"
+                                for="endereco-paciente"
+                                >Endereço:
+                            </label>
+                            <span
+                                class="conteudo-dados-paciente"
+                                id="endereco-paciente"
+                                >Rua exemplo, n°x, bairro exemplo, complemento este, na
+                                cidade-UF, Brasil </span
+                            ></div>
+                        </div>
+
+                        <div class="container-alergias-paciente">
+                            <h4 class="title-alergias-paciente">ALERGIAS:</h4>
+                            <p class="conteudo-dados-paciente">
+                                <span id="alergias-paciente"
+                                    >Paracetamol, dipirona.</span
+                                >
+                            </p>
+                        </div>
+
+                        <div class="observacoes-paciente">
+                            <h4 class="title-observacoes-paciente">
+                                Observações:
+                            </h4>
+                            <p class="conteudo-observacoes-paciente">
+                                <span id="observacoes-paciente"
+                                    >Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Earum inventore quia
+                                    itaque, quae architecto libero,
+                                    necessitatibus quos modi natus quasi quam
+                                    commodi doloribus qui aperiam tempora ipsa
+                                    suscipit sequi cupiditate.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
