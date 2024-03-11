@@ -1,16 +1,17 @@
+@import "./reset.css";
+@import "./header.css";
+
 main {
     background-image: url(../img/bg-index.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    padding: 50px;
-    height: 85vh;
+    padding: 5vh 5vw;
+    height: 83vh;
 }
 
 .mainDiv {
     display: flex;
-    height: 68vh;
-    border-radius: 20px;
-    margin: 5vh 5vw;
+    height: 73vh;
 }
 
 .mainDiv .mainDiv-imgArea {
@@ -73,4 +74,10 @@ main {
     padding: 0.5rem;
     width: 70%;
     margin-top: 30px;
+}
+
+.btn-submit-login:hover {
+    cursor: pointer;
+    background-color: var(--color-blue);
+    transition: 0.4s ease-in-out;
 }
