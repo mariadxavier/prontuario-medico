@@ -6,6 +6,8 @@
         <title>Prontuário Médico</title>
         <!-- Folha de estilo: -->
         <link rel="stylesheet" href="./src/css/paciente.css" />
+        <!-- Javascript: -->
+        <script src="./src/js/troca-conteudo-pacienteHTML.js" defer></script>
     </head>
     <body>
         <header>
@@ -44,10 +46,18 @@
                     <div class="aside-conteudo">
                         <nav class="aside-nav-dados-paciente">
                             <ul>
-                                <li class="aba-aberta">
-                                    <a href="">PESSOAL</a>
+                                <li
+                                    id="aside-select-pessoal"
+                                    class="aside-select aba-selecionada"
+                                >
+                                    PESSOAL
                                 </li>
-                                <li class=""><a href="">HISTÓRICO</a></li>
+                                <li
+                                    id="aside-select-historico"
+                                    class="aside-select"
+                                >
+                                    HISTÓRICO
+                                </li>
                             </ul>
                         </nav>
                         <div class="aside-buttons">
@@ -58,7 +68,7 @@
                 </aside>
 
                 <div class="div-show-dados-paciente">
-                    <div class="dados-pessoais-paciente">
+                    <div class="dados-pessoais-paciente container">
                         <div class="area-caracteristicas-paciente">
                             <img
                                 id="pacient-profile-img"
@@ -201,28 +211,30 @@
 
                             <div class="item-contatos-paciente">
                                 <label
-                                class="label-dados-paciente"
-                                for="email-paciente"
-                                >E-mail:
-                            </label>
-                            <span
-                                class="conteudo-dados-paciente"
-                                id="email-paciente"
-                                >testeemail@gmail.com</span
-                            > </div>
+                                    class="label-dados-paciente"
+                                    for="email-paciente"
+                                    >E-mail:
+                                </label>
+                                <span
+                                    class="conteudo-dados-paciente"
+                                    id="email-paciente"
+                                    >testeemail@gmail.com</span
+                                >
+                            </div>
 
                             <div class="item-contatos-paciente">
                                 <label
-                                class="label-dados-paciente"
-                                for="endereco-paciente"
-                                >Endereço:
-                            </label>
-                            <span
-                                class="conteudo-dados-paciente"
-                                id="endereco-paciente"
-                                >Rua exemplo, n°x, bairro exemplo, complemento este, na
-                                cidade-UF, Brasil </span
-                            ></div>
+                                    class="label-dados-paciente"
+                                    for="endereco-paciente"
+                                    >Endereço:
+                                </label>
+                                <span
+                                    class="conteudo-dados-paciente"
+                                    id="endereco-paciente"
+                                    >Rua exemplo, n°x, bairro exemplo,
+                                    complemento este, na cidade-UF, Brasil
+                                </span>
+                            </div>
                         </div>
 
                         <div class="container-alergias-paciente">
@@ -248,6 +260,29 @@
                                     suscipit sequi cupiditate.
                                 </span>
                             </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="container historico-paciente"
+                        style="display: none"
+                    >
+                        <div class="consulta item-historico">
+                            <div class="area-titulo-consulta">
+                                <h2 class="title-consulta"><span>Dengue</span></h2>
+                                <p class="data-consulta"><span></span></p>
+                            </div>
+
+                            <div class="conteudo consulta">                                
+                                <div class="conteudo-maximizado-consulta">
+                                    <div class="conteudo-minimizado-consulta">
+                                        <div class="item-"></div>
+                                        <button>VER TUDO</button>
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -62,7 +62,7 @@ main {
   padding: 10px;
 }
 
-.aside-dados-paciente .aside-nav-dados-paciente ul li a {
+.aside-dados-paciente .aside-nav-dados-paciente ul li {
   color: var(--color-black);
   font-size: 1.3rem;
   font-weight: 500;  
@@ -70,14 +70,14 @@ main {
   border-radius: 20px;
 }
 
-.aside-dados-paciente .aside-nav-dados-paciente ul li a:hover {
+.aside-dados-paciente .aside-nav-dados-paciente ul li:hover {
     cursor: pointer;
     background-color: var(--color-light-gray);
     transition: 0.4s ease-in-out;
 }
 
 /* Detalhe abaixo da aba selecionada e aberta: */
-.aba-aberta::after {
+.aba-selecionada::after {
     content: "";
     display: block;
     height: 4px;
@@ -108,21 +108,23 @@ main {
     background-color: var(--color-blue);
     transition: 0.4s ease-in-out;
 }
-
-
 /* fim area de navegação*/
 
 /* inicio area de mostra de dados */
+
+/* inicio area pessoal */
 .div-show-dados-paciente {
     background-color: var(--color-white);
     border-radius: 0 20px 20px 0;
+    height: 100%;
+    width: 100%;
 }
 
 /* dados pessoais: */
 .div-show-dados-paciente .dados-pessoais-paciente {
-    height: 100%;
-    padding: 20px 30px;
     display: grid;
+    height: 100%;
+    padding: 20px 30px;    
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
@@ -227,6 +229,7 @@ main {
     padding: 5px 8px;
     font-weight: 500;
     margin-left: 8px;
+    position: relative;
     
 }
 
@@ -239,4 +242,13 @@ main {
     margin-top: -10px;
 }
 /* fim observações */
+/* fim area pessoal */
+
+/* inicio area historico */
+.div-show-dados-paciente .historico-paciente {
+    height: 100%;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;    
+}
 /* fim area de mostra de dados */
