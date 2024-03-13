@@ -16,7 +16,9 @@
     public string $peso;
     public array $alergias;
 
-    public function __constructor($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias){
+    public string $observacoes;
+
+    public function __constructor($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias, $observacoes){
       $this->nome = strtoupper($nome);
       $this->cpf = strtoupper($cpf);
       $this->telefone = strtoupper($telefone);
@@ -31,7 +33,8 @@
       $this->sangue = strtoupper($sangue);
       $this->altura = strtoupper($altura);
       $this->peso = strtoupper($peso);
-      $this->alergias = strtoupper($alergias);
+      $this->alergias = $alergias;
+      $this->observacoes = strtoupper($observacoes);
     }
   }
 
