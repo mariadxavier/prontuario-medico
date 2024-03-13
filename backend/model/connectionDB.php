@@ -1,5 +1,6 @@
 <?php
   require __DIR__."/../vendor/autoload.php";
+  require_once "Paciente.php";
   use Kreait\Firebase\Factory;
   use Ramsey\Uuid\Uuid;
 
@@ -67,14 +68,25 @@
     }
 
     //cria um novo paciente
-    public function setNewPaciente($nome, $cep, $cpf, $sexo){
+    public function setNewPaciente(Paciente $newPaciente){
       $uuid = Uuid::uuid4();
       try{
         $paciente = $this->connectionDB->getReference("Paciente/".$uuid)->set([
-          "nome" => $nome,
-          "cep"=> $cep,
-          "cpf" => $cpf,
-          "sexo" => $sexo
+          "nome" => $newPaciente->nome,
+          "cpf" => $newPaciente->cpf,
+          "telefone" => $newPaciente->telefone,
+          "cep" => $newPaciente->cep,
+          "endereco" =>$newPaciente->endereco,
+          "sexo" => $newPaciente->sexo,
+          "nascimento" =>$newPaciente->nascimento,
+          "pai" =>$newPaciente->pai,
+          "mae" =>$newPaciente->mae,
+          "raca" =>$newPaciente->raca,
+          "email" =>$newPaciente->email,
+          "sangue" =>$newPaciente->sangue,
+          "altura" =>$newPaciente->altura,
+          "peso" =>$newPaciente->peso,
+          "alergias" =>$newPaciente->alergias,
         ]);
         if(!$paciente){
           throw new Exception("Falha ao cadastrar o paciente.");
