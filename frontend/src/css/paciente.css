@@ -247,8 +247,30 @@ main {
 /* inicio area historico */
 .div-show-dados-paciente .historico-paciente {
     height: 100%;
-    padding: 20px 30px;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;    
+    padding: 20px 30px;   
 }
+
+.historico-paciente .container-historico {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.historico-paciente .item-historico {
+    width: 100%;
+    background-color: var(--color-bg-light-gray);
+    border-radius: 20px;
+}
+
+.item-historico .area-title-consulta {
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+
+    background-color: var(--color-lightBlue-opacity);
+    border-radius: 20px;
+    padding: 10px;
+}
+/* fim area de historico */
 /* fim area de mostra de dados */
