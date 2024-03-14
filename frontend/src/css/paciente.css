@@ -247,8 +247,118 @@ main {
 /* inicio area historico */
 .div-show-dados-paciente .historico-paciente {
     height: 100%;
-    padding: 20px 30px;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;    
+    padding: 20px 30px;   
 }
+
+.historico-paciente .container-historico {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px 0 0;
+    overflow-y: scroll;
+
+}
+.historico-paciente .container-historico::-webkit-scrollbar {
+    width: 10px;               /* width da barra de rolagem */
+}
+
+.historico-paciente .container-historico::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightBlue-opacity);    /* cor do scroll */
+    border-radius: 20px;       /* borda scroll */
+    border: 3px solid var(--color-white);  
+  }
+
+.historico-paciente .item-historico {
+    width: 100%;
+    background-color: var(--color-bg-light-gray);
+    border-radius: 20px;
+}
+
+.historico-paciente .item-historico  label {
+    font-weight: 600;
+}
+
+.item-historico .area-title-consulta {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-lightBlue-opacity);
+    border-radius: 20px;
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.item-historico .area-title-consulta h2 {
+    color: var(--color-white);
+}
+
+.item-historico .conteudo-consulta {
+    padding:10px;
+}
+
+.item-historico .conteudo-consulta .item-minimizado {
+    height: 70px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.item-historico .conteudo-consulta .item-minimizado .area-label-consulta{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    grid-column: 1;    
+}
+
+.item-historico .conteudo-consulta .item-minimizado button {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: var(--color-mediumAqua);
+    color: var(--color-white);
+    font-weight: 700;
+    width: 120px;
+    height:35px;
+    border: 0 none transparent;
+    border-radius: 7px;
+    justify-self: end;
+}
+
+.item-historico .conteudo-consulta .item-maximizado {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-historico .conteudo-consulta .item-maximizado .area-label-consulta-textarea {
+ margin-top: 5px;    
+}
+
+.item-maximizado .area-label-consulta-textarea .textarea-consulta {
+    background-color: var(--color-lightBlue-opacity);
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.item-historico .conteudo-consulta .item-maximizado button {
+    background-color: var(--color-red);
+    grid-row: 4;
+    color: var(--color-white);
+    font-weight: 700;
+    width: 120px;
+    height:35px;
+    border: 0 none transparent;
+    border-radius: 7px;
+    align-self:last baseline;
+}
+
+.div-show-dados-paciente button:hover {
+    cursor: pointer;
+    transition: .8s;
+    filter: brightness(1.3);
+}
+/* fim area de historico */
 /* fim area de mostra de dados */

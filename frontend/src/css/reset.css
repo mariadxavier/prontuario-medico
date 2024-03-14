@@ -27,11 +27,11 @@ a {
 }
 /* paleta de cores: */
 :root {
-  --color-mediumBlue: #4cf2c0;
   --color-lightBlue: #6bf5ff;
   --color-mediumAqua: #4cf2c0;
   --color-darkAqua: #00bffc;
   --color-orange: #ffc839;
+  --color-red: #ff6262;
   --color-blue: #01b5c2;
   --color-black: #000;
   --color-white: #fff;
@@ -40,7 +40,7 @@ a {
   --color-bg-light-gray: #f1f1f1;
 
   --color-blue-opacity: rgba(107, 245, 255, 0.37);
-  --color-lightBlue-opacity: rgba(1, 181, 194, 0.66);
+  --color-lightBlue-opacity: rgba(107, 245, 255, 0.66);
   --color-bgLightBlue-opacity: rgba(107, 245, 255, 0.51);
 ;
 }
@@ -151,5 +151,4 @@ a {
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-style: italic;
-  }
-  
+  }  
