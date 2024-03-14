@@ -2,7 +2,7 @@
  ## Descrição do projeto 
 ---
 <p align="justify">
- Projeto em desenvolvimento para a disciplina programação BackEnd do curso técnico Análise e Desenvolvimento de sistemas na instituição da Proz Educação. O objetivo principal deste projeto é desenvolver um site dinâmico de um prontuário eletrônico , proporcionando uma ferramenta para que profissionais de saúde armazenem e acessem informações clínicas de forma segura .
+ Projeto em desenvolvimento para a disciplina BackEnd do curso técnico Análise e Desenvolvimento de sistemas na instituição da Proz Educação. O objetivo principal deste projeto é desenvolver um site dinâmico de um prontuário eletrônico , proporcionando uma ferramenta para que profissionais de saúde armazenem e acessem informações clínicas de forma segura .
 
 </p> 
 <p align="center">
