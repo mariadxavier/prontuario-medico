@@ -1,6 +1,8 @@
 <?php
   require __DIR__."/../vendor/autoload.php";
   require_once "Paciente.php";
+  require_once "Consulta.php";
+  require_once "Medico.php";
   use Kreait\Firebase\Factory;
   use Ramsey\Uuid\Uuid;
 
@@ -44,7 +46,8 @@
     //traz pacientes através do nome
     public function getPacienteByNome($nome){
       try{
-        $paciente = $this->connectionDB->getReference("Paciente/")->orderByChild("nome")->equalTo($nome)->getSnapshot()->getValue();
+        $nomeUpperCase = strtoupper($nome);
+        $paciente = $this->connectionDB->getReference("Paciente/")->orderByChild("nome")->equalTo($nomeUpperCase)->getSnapshot()->getValue();
         if(!$paciente){
           throw new Exception("Este nome não foi encontrado.");
         }
@@ -72,21 +75,22 @@
       $uuid = Uuid::uuid4();
       try{
         $paciente = $this->connectionDB->getReference("Paciente/".$uuid)->set([
-          "nome" => $newPaciente->nome,
-          "cpf" => $newPaciente->cpf,
-          "telefone" => $newPaciente->telefone,
-          "cep" => $newPaciente->cep,
-          "endereco" =>$newPaciente->endereco,
-          "sexo" => $newPaciente->sexo,
-          "nascimento" =>$newPaciente->nascimento,
-          "pai" =>$newPaciente->pai,
-          "mae" =>$newPaciente->mae,
-          "raca" =>$newPaciente->raca,
-          "email" =>$newPaciente->email,
-          "sangue" =>$newPaciente->sangue,
-          "altura" =>$newPaciente->altura,
-          "peso" =>$newPaciente->peso,
-          "alergias" =>$newPaciente->alergias,
+          "id" => $uuid,
+          "nome" => $newPaciente->getNome(),
+          "cpf" => $newPaciente->getCpf(),
+          "telefone" => $newPaciente->getTelefone(),
+          "cep" => $newPaciente->getCep(),
+          "endereco" =>$newPaciente->getEndereco(),
+          "sexo" => $newPaciente->getSexo(),
+          "nascimento" =>$newPaciente->getNascimento(),
+          "pai" =>$newPaciente->getPai(),
+          "mae" =>$newPaciente->getMae(),
+          "raca" =>$newPaciente->getRaca(),
+          "email" =>$newPaciente->getEmail(),
+          "sangue" =>$newPaciente->getSangue(),
+          "altura" =>$newPaciente->getAltura(),
+          "peso" =>$newPaciente->getPeso(),
+          "alergias" =>$newPaciente->getAlergias(),
         ]);
         if(!$paciente){
           throw new Exception("Falha ao cadastrar o paciente.");
@@ -152,12 +156,17 @@
     }
 
     //cria uma nova consulta no banco de dados
-    public function setNewConsulta($idPaciente, $idMedico){
+    public function setNewConsulta(Consulta $newConsulta){
       $uuid = Uuid::uuid4();
       try{
         $consulta = $this->connectionDB->getReference("Consulta/".$uuid)->set([
-          "idPaciente" => $idPaciente,
-          "idMedico"=> $idMedico 
+          "id" => $uuid,
+          "idMedico" => $newConsulta->getIdMedico(),
+          "idPaciente" => $newConsulta->getIdPaciente(),
+          "prescricao" => $newConsulta->getPrescricao(),
+          "anamnese" => $newConsulta->getAnamnese(),
+          "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
+          "diagnostico" => $newConsulta->getDiagnostico()
         ]);
         if(!$consulta){
           throw new Exception("Falha ao criar a consulta.");
@@ -198,7 +207,8 @@
     //traz um médico ou mais pelo seu nome
     public function getMedicoByNome($nome){
       try{
-        $medico = $this->connectionDB->getReference("Medico/")->orderByChild("nome")->equalTo($nome)->getSnapshot()->getValue();
+        $nomeUpperCase = strtoupper($nome);
+        $medico = $this->connectionDB->getReference("Medico/")->orderByChild("nome")->equalTo($nomeUpperCase)->getSnapshot()->getValue();
         if(!$medico){
           throw new Exception("Este nome não foi encontrado.");
         }
@@ -222,12 +232,17 @@
     }
 
     //cadastra um novo médico
-    public function setNewMedico($CRM, $nome){
+    public function setNewMedico(Medico $newMedico){
       $uuid = Uuid::uuid4();
       try{
         $medico = $this->connectionDB->getReference("Medico/".$uuid)->set([
-          "CRM" => $CRM,
-          "nome" => $nome
+          "id" => $uuid,
+          "CRM" => $newMedico->getCRM(),
+          "nome" => $newMedico->getNome(),
+          "telefone" => $newMedico->getTelefone(),
+          "email" => $newMedico->getEmail(),
+          "cpf" => $newMedico->getCpf(),
+          "endereco" => $newMedico->getEndereco(),
         ]);
         if(!$medico){
           throw new Exception("Falha ao cadastrar o médico.");
