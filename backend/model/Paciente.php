@@ -1,22 +1,22 @@
 <?php 
   class Paciente {
-    public string $nome;
-    public string $cpf;
-    public string $telefone;
-    public string $cep;
-    public string $endereco;
-    public string $sexo;
-    public string $nascimento;
-    public string $pai;
-    public string $mae;
-    public string $raca;
-    public string $email;
-    public string $sangue;
-    public string $altura;
-    public string $peso;
-    public array $alergias;
+    private string $nome;
+    private string $cpf;
+    private string $telefone;
+    private string $cep;
+    private string $endereco;
+    private string $sexo;
+    private string $nascimento;
+    private string $pai;
+    private string $mae;
+    private string $raca;
+    private string $email;
+    private string $sangue;
+    private string $altura;
+    private string $peso;
+    private array $alergias;
 
-    public function __constructor($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias){
+    public function __construct($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias){
       $this->nome = strtoupper($nome);
       $this->cpf = strtoupper($cpf);
       $this->telefone = strtoupper($telefone);
@@ -31,7 +31,53 @@
       $this->sangue = strtoupper($sangue);
       $this->altura = strtoupper($altura);
       $this->peso = strtoupper($peso);
-      $this->alergias = strtoupper($alergias);
+      $this->alergias = $alergias;
+    }
+
+    public function getNome(){
+      return $this->nome;
+    }
+    public function getCpf(){
+      return $this->cpf;
+    }
+    public function getTelefone(){
+      return $this->telefone;
+    }
+    public function getCep(){
+      return $this->cep;
+    }
+    public function getEndereco(){
+      return $this->endereco;
+    }
+    public function getSexo(){
+      return $this->sexo;
+    }
+    public function getNascimento(){
+      return $this->nascimento;
+    }
+    public function getMae(){
+      return $this->mae;
+    }
+    public function getPai(){
+      return $this->pai;
+    }
+    public function getRaca(){
+      return $this->raca;
+    }
+    public function getEmail(){
+      return $this->email;
+    }
+    public function getSangue(){
+      return $this->sangue;
+    }
+    public function getAltura(){
+      return $this->altura;
+    }
+    public function getPeso(){
+      return $this->peso;
+    }
+    public function getAlergias(){
+      return $this->alergias;
     }
   }
 
