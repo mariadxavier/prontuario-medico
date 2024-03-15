@@ -14,9 +14,10 @@
     private string $sangue;
     private string $altura;
     private string $peso;
-    private array $alergias;
+    private string $alergias;
+    private string $observacoes;
 
-    public function __construct($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias){
+    public function __construct($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias, $observacoes){
       $this->nome = strtoupper($nome);
       $this->cpf = strtoupper($cpf);
       $this->telefone = strtoupper($telefone);
@@ -31,7 +32,8 @@
       $this->sangue = strtoupper($sangue);
       $this->altura = strtoupper($altura);
       $this->peso = strtoupper($peso);
-      $this->alergias = $alergias;
+      $this->alergias = strtoupper($alergias);
+      $this->observacoes = strtoupper($observacoes);
     }
 
     public function getNome(){
@@ -78,6 +80,10 @@
     }
     public function getAlergias(){
       return $this->alergias;
+    }
+
+    public function getObservacoes(){
+      return $this->observacoes;
     }
   }
 

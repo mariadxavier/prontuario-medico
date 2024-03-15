@@ -91,6 +91,7 @@
           "altura" =>$newPaciente->getAltura(),
           "peso" =>$newPaciente->getPeso(),
           "alergias" =>$newPaciente->getAlergias(),
+          "observacoes"=>$newPaciente->getObservacoes()
         ]);
         if(!$paciente){
           throw new Exception("Falha ao cadastrar o paciente.");

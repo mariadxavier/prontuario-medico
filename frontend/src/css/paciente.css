@@ -161,6 +161,7 @@ main {
     width: 100%;
     border-radius: 100px;
     background: var(--color-darkAqua);
+    margin-bottom: 5px;
 }
 
 .caracteristicas-paciente .item-caracteristicas-paciente:last-child {
