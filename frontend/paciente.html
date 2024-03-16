@@ -421,11 +421,10 @@
                 <!-- Fim Sessão: Histórico -->
 
                 <!-- Sessão: Consulta -->
-                <div class="consulta-paciente container" style="display: block;">
+                <div class="consulta-paciente" style="display: block;">
                     <div data-consulta="divs" class="anamnese-div-container div-selecionada">
-
                         <!-- Essa nova div utilizada para separar o conteúdo do botão, deverá ser repensada no refatoramento -->
-                        <div class="anamnese-div-container">
+                        <div class="container">
                             <div class="anamnese-div-title">
                                 <h1>Anamnese</h1>
                                 <div class="title-div-informations">
@@ -477,7 +476,67 @@
                     </div>
 
                     <div data-consulta="divs" class="antecedentes-div-container">
-                        <h1>Antecedentes</h1>
+
+                        <div class="container">
+                            <h1>Fatores de Risco/Antecedentes</h1>
+                            <form action="" method="post">
+                                <div class="form-div-selects">
+                                    <div class="area-label">
+                                        <label for="hipertensao-arterial">Hipertensão Arterial:</label>
+                                        <input type="checkbox" value="" for="hipertensao-arterial" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="tabaquismo">Tabaquismo:</label>
+                                        <input type="checkbox" value="" for="tabaquismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="estresse">Estresse:</label>
+                                        <input type="checkbox" value="" for="estresse" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="sedentarismo">Sedentarismo:</label>
+                                        <input type="checkbox" value="" for="sedentarismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="obesidade">Obesidade:</label>
+                                        <input type="checkbox" value="" for="obesidade" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="avc">AVC:</label>
+                                        <input type="checkbox" value="" for="avc" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="hereditariedade">Hereditariedade:</label>
+                                        <input type="checkbox" value="" for="hereditariedade" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="menopausa">Menopausa:</label>
+                                        <input type="checkbox" value="" for="menopausa" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="diabetes">Diabetes:</label>
+                                        <input type="checkbox" value="" for="diabetes" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="hipercolesterolemia">Hipercolesterolemia:</label>
+                                        <input type="checkbox" value="" for="hipercolesterolemia" >
+                                    </div>
+
+                                </div>
+                                <div class="form-div-questions">
+                                    <div>
+                                        <label for="questions-outros">Outros:</label>
+                                        <input type="text" name="questions-outros" id="">
+                                    </div>
+                                    <div>
+                                        <label for="medicamentos">Medicamentos?</label>
+                                        <input type="text" name="medicamentos" id="" placeholder="Quais?">
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
                         <button data-consulta="button" type="submit">Próximo</button>
                     </div>
 
