@@ -126,6 +126,17 @@ main {
     height: 100%;
     padding: 20px 30px;    
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+}
+
+.div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar {
+    width: 10px;               /* width da barra de rolagem */
+}
+
+.div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightBlue-opacity);    /* cor do scroll */
+    border-radius: 20px;       /* borda scroll */
+    border: 3px solid var(--color-white);  
 }
 
 .dados-pessoais-paciente .area-caracteristicas-paciente {
@@ -269,7 +280,7 @@ main {
     background-color: var(--color-lightBlue-opacity);    /* cor do scroll */
     border-radius: 20px;       /* borda scroll */
     border: 3px solid var(--color-white);  
-  }
+}
 
 .historico-paciente .item-historico {
     width: 100%;
