@@ -7,7 +7,7 @@ main {
   background-image: url(../img/bg-index.png);
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 5vh 5vw;
+  padding: 5vh 16vw;
 }
 
 /* Area principal: */
@@ -401,11 +401,19 @@ main {
     color: var(--color-white);
     align-self: center;
 }
-.title-div-informations {
+.anamnese-div-title .title-div-informations {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     gap: 10px;
+}
+.anamnese-div-title .title-div-informations .area-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.anamnese-div-title .title-div-informations div label {
+    font-size: 1.2rem;
 }
 
 .anemnese-space-bar {
@@ -446,56 +454,59 @@ main {
     width: 100%;
     padding: 8px;
 }
+.anamnese-div-container form label {
+    font-size: 1.2rem;
+}
 /* Fim Anamnese */
 
-/* Antecedentes */
-.antecedentes-div-container .container {
+/* Contra-Indicações */
+.container {
     gap: 20px;
 }
-.antecedentes-div-container .container h1 {
+.container h1 {
     background: var(--color-blue);
     padding: 0px 30px;
     border-radius: 10px;
     color: var(--color-white);
     align-self: center;
 }
-
-.antecedentes-div-container form {
+.container form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
 }
-
-.antecedentes-div-container .form-div-selects {
+.container .form-div-selects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: end;
+    align-items: center;
     
     gap: 10px;
-    padding: 0 30px;
+    padding: 0 3vw;
 }
-.antecedentes-div-container .form-div-selects .area-label input {
+.container .form-div-selects .area-label input {
     height: 20px;
     width: 20px;
 }
 
-.antecedentes-div-container .form-div-selects .area-label label, .form-div-questions label {
+.container .form-div-selects .area-label label, .form-div-questions label {
     font-size: 1.2rem;
 }
-.antecedentes-div-container .form-div-questions input {
-    border-radius: 7px;
+.container .form-div-questions input {
+    border-radius: 12px;
 }
 
-.antecedentes-div-container .form-div-questions {
+.container .form-div-questions {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-.antecedentes-div-container .form-div-questions div {
+.container .form-div-questions div {
     display: flex;
     gap: 5px;
 }
-.antecedentes-div-container form div input {
+.container .form-div-questions div input {
     height: 30px;
     border-radius: 12px;
     border: none;
@@ -505,7 +516,42 @@ main {
 
     font-size: 1rem;
 }
-/* Fim Antecedentes */
+
+/* Diagnóstico */
+.diagnostico-div-container .container .form-div-questions div {
+   display: grid;
+}
+.diagnostico-div-container .container .title-div-informations {
+    display: flex;
+    justify-content: space-between;
+}
+.diagnostico-div-container .container .title-div-informations .informations-div-additional {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.diagnostico-div-container .container .form-div-questions {
+    gap: 15px;
+}
+.diagnostico-div-container .container .title-div-informations .informations-div-additional .area-label {
+    display: flex;
+}
+#diagnostico-questions-retorno {
+    display: flex;
+    width: 100%;
+}
+#diagnostico-questions-retorno .retorno-div-container {
+    display: flex;
+}
+#question-retorno {
+   min-width: 210px;
+}
+
+/* Fim Diagnóstico */
+
+/* Fim Contra-Indicações */
+
 
 /* Fim Consulta */
 

@@ -476,13 +476,12 @@
                     </div>
 
                     <div data-consulta="divs" class="antecedentes-div-container">
-
                         <div class="container">
                             <h1>Fatores de Risco/Antecedentes</h1>
                             <form action="" method="post">
                                 <div class="form-div-selects">
                                     <div class="area-label">
-                                        <label for="hipertensao-arterial">Hipertensão Arterial:</label>
+                                        <label for="hipertensao-arterial">Hipertensão:</label>
                                         <input type="checkbox" value="" for="hipertensao-arterial" >
                                     </div>
                                     <div class="area-label">
@@ -541,13 +540,90 @@
                     </div>
 
                     <div data-consulta="divs" class="contra-indicacoes-div-container">
-                        <h1>Contra</h1>
+                        <div class="container">
+                            <h1>Contra-Inidicações</h1>
+                            <form action="" method="post">
+                                <div class="form-div-selects">
+                                    <div class="area-label">
+                                        <label for="hipertensao">Hipertensão:</label>
+                                        <input type="checkbox" value="" for="hipertensao" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="tabaquismo">Tabaquismo:</label>
+                                        <input type="checkbox" value="" for="tabaquismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="estresse">Estresse:</label>
+                                        <input type="checkbox" value="" for="estresse" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="sedentarismo">Sedentarismo:</label>
+                                        <input type="checkbox" value="" for="sedentarismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="obesidade">Obesidade:</label>
+                                        <input type="checkbox" value="" for="obesidade" >
+                                    </div>
+
+                                </div>
+                                <div class="form-div-questions">
+                                    <div>
+                                        <label for="questions-outros">Outros:</label>
+                                        <input type="text" name="questions-outros" id="">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
                         <button data-consulta="button" type="submit">Próximo</button>
                     </div>
 
                     <div data-consulta="divs" class="diagnostico-div-container">
-                        <h1>Diagnóstico</h1>
-                        <button data-consulta="button" type="submit">Próximo</button>
+                        <div class="container">
+                            <!-- <h1>Diagnóstico</h1> -->
+                            <div class="title-div-informations">
+                                <div class="area-label">
+                                    <label for="">Médico(a):</label>
+                                    <p>Dipirona</p>
+                                </div>
+                                <div class="informations-div-additional">
+                                    <div class="area-label">
+                                        <label for="">Data:</label>
+                                        <p>00/00/0000</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Hora:</label>
+                                        <p>00:00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form class="form-div-questions" action="" method="post">
+                                <div>
+                                    <label for="diagnostico">Diagnóstico Médico:</label>
+                                    <input type="text" name="diagnostico" id="">
+                                </div>
+                                <div>
+                                    <label for="informacoes-adicionais">informações Adicionais:</label>
+                                    <input type="text" name="informacoes-adicionais" id="" placeholder="Sintomas e observações">
+                                </div>
+                                <div>
+                                    <label for="medicamento">Medicamento:</label>
+                                    <input type="text" name="medicamento" id="" placeholder="Medicamento, quantos dias, quantidade">
+                                </div>
+                                <div id="diagnostico-questions-retorno">
+                                    <label for="" id="question-retorno">Consulta de Retorno?</label>
+                                    <input type="text" name="" id="retorno-input-protocolo">
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div>
+                            <p>ID: 00000000000000000</p>
+                            <button data-consulta="button" type="submit">Próximo</button>
+                        </div>
                     </div>
 
                 </div>
