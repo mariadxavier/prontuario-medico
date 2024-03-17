@@ -3,7 +3,6 @@
 
 .section-apresentation {
     display: flex;
-    height: 83vh;
     gap: 5vh;
     flex-direction: column;
     align-items: center;
@@ -23,19 +22,26 @@
 
 /* Div Pesquisa */
 .apresentation-search {
-    height: 30vh;
     display: flex;
+    flex-direction: column;
+    gap: 25px;
     align-items: center;
     justify-content: center;
-    
+    padding: 50px;
+    height: fit-content;
+    width: 100%;
+
+    background-image: url(../img/bg-index.png);
+    background-repeat: no-repeat;
+    background-size: 100%;    
 }
-.apresentation-search img{
+/* .apresentation-search img{
     position: absolute;
     z-index: -1;
     width: 100vw;
-    height: 30vh;
+    height: 100%;
     object-fit: cover;
-}
+} */
 
 /* Formulário / Barra de pesquisa */
 .apresentation-form {
@@ -69,3 +75,43 @@
     font-weight: 600;
 }
 /* Formulário / Barra de pesquisa */
+
+/* div que mostra dados dos usuários retornados na pesquisa: */
+.mostrar-paciente-buscado {
+    width: 75%;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--color-white);
+}
+
+.mostrar-paciente-buscado .area-id-paciente {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+
+}
+
+.mostrar-paciente-buscado .conteudo-paciente-buscado {
+    padding: 15px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 70% 30%;
+    gap: 5px;
+}
+
+.mostrar-paciente-buscado .conteudo-paciente-buscado:first-child {
+    grid-row: 1;
+    grid-column: 1/3;
+}
+
+.dado-paciente-buscado {
+    display: flex;
+    flex-direction: row;
+}
+
+.dado-paciente-buscado label {
+    font-weight: 700;
+}
