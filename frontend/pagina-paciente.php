@@ -3,7 +3,7 @@
     $db = new ConnectionDB();
     $id = $_GET["idPaciente"];
     $usuarioEncontrado = $db->getPacienteById($id);
-    var_dump($usuarioEncontrado);
+    $collectionConsulta = $db->getConsultaByPacienteId($id);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -184,15 +184,30 @@
                     <div class="container-alergias-paciente">
                     <h4 class="title-alergias-paciente">ALERGIAS:</h4>
                     <p class="conteudo-dados-paciente">
-                        <span id="alergias-paciente"><?php echo $usuarioEncontrado["alergias"]?></span>
+                        <span id="alergias-paciente">
+                            <?php
+                                if(!$usuarioEncontrado["alergias"]){
+                                    echo "Sem alergias cadastradas";
+                                } else {
+                                    echo $usuarioEncontrado["alergias"];
+                                };
+                            ?>
+                        </span>
                     </p>
                     </div>
         
                     <div class="observacoes-paciente">
                     <h4 class="title-observacoes-paciente">Observações:</h4>
                     <p class="conteudo-observacoes-paciente">
-                        <span id="observacoes-paciente"
-                        ></span>
+                        <span id="observacoes-paciente">
+                            <?php
+                                if($usuarioEncontrado["observacoes"] == null){
+                                    echo "Sem observações cadastradas";
+                                } else {
+                                    echo $usuarioEncontrado["observacoes"];
+                                }; 
+                            ?>
+                        </span>
                     </p>
                     </div>
                 </div>
@@ -200,50 +215,65 @@
                 <div class="container historico-paciente" style="display: none">
                     <div class="container-historico" >                        
                         <?php 
-                            $collectionConsulta = $db->getConsultaByPacienteId($id);
-                            echo $collectionConsulta;
-                        
-                        //     foreach($collectionConsulta as $key => $value) {                            
-                        //     // foreach consulta , isso: com os dados da mesma:
-                        //     echo '<div class="item-historico consulta">
-                        //     <div class="area-title-consulta">
-                        //         <h2 class="title-consulta">'.$key .'</h2>
-                        //         <p class="data-consulta">00/00/0000</p>
-                        //     </div>
-                        //     <div class="conteudo-consulta">
-                        //         <div class="item-minimizado">
-                        //             <div class="area-label-consulta">
-                        //                 <label for="id-consulta">ID:</label>
-                        //                 <p name="id-consulta">7655645678832</p>                                
-                        //             </div>
-                                    
-                        //             <div class="area-label-consulta">
-                        //                 <label for="medicacao-utilizada">Medicação Utilizada:</label>
-                        //                 <p name="medicacao-utilizada">Dipirona</p>                                
-                        //             </div>       
-                        //             <button class="button-ver-tudo">VER TUDO</button>
-                        //         </div>
+                            if($collectionConsulta) {                        
+                                foreach($collectionConsulta as $consulta) {                            
+                                    // para cada consulta retornada do paciente consulta, imprime essa div, com os dados da mesma:
+                                    echo '<div class="item-historico consulta">
+                                    <div class="area-title-consulta">
+                                        <h2 class="title-consulta">'.$consulta["diagnostico"].'</h2>
+                                        <p class="data-consulta">16/03/2024</p> 
+                                    </div>
+                                    <div class="conteudo-consulta">
+                                        <div class="item-minimizado">
+                                            <div class="area-label-consulta">
+                                                <label for="id-consulta">ID:</label>
+                                                <p name="id-consulta">'.$consulta["id"].'</p>                                
+                                            </div>
+                                            
+                                            <div class="area-label-consulta">
+                                                <label for="medicacao-utilizada">Medicação Utilizada:</label>
+                                                <p name="medicacao-utilizada">'.$consulta["prescricao"]["remedios"].'</p>                                
+                                            </div>       
+                                            <button class="button-ver-tudo">VER TUDO</button>
+                                        </div>
 
-                        //         <div class="item-maximizado">
-                        //             <div class="area-label-consulta-textarea">
-                        //                 <label for="sintomas">Sintomas:</label>
-                        //                 <p name="sintomas" class="textarea-consulta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum, quo rem incidunt porro cum blanditiis aut vitae repellendus, dolorem labore quaerat a recusandae perferendis. Consequuntur explicabo accusantium eveniet tempore.</p>                                
-                        //             </div>
-        
-                        //             <div class="area-label-consulta-textarea">
-                        //                 <label for="procedimentos">Procedimentos:</label>
-                        //                 <p name="procedimentos" class="textarea-consulta">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque dolorum, quo rem incidunt porro cum blanditiis aut vitae repellendus, dolorem labore quaerat a recusandae perferendis. Consequuntur explicabo accusantium eveniet tempore.</p>                                
-                        //             </div>
-        
-                        //             <div class="area-label-consulta-textarea">
-                        //                 <label for="sintomas">Medicação:</label>
-                        //                 <p name="sintomas" class="textarea-consulta">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>                                
-                        //             </div>
-        
-                        //             <button class="button-ver-menos">VER MENOS</button>
-                        //         </div>
-                        //     </div>
-                        // </div>';};
+                                        <div class="item-maximizado">
+                                            <div class="area-label-consulta-textarea">
+                                                <label for="sintomas">Sintomas:</label>
+                                                <p name="sintomas" class="textarea-consulta">
+                                                '.$consulta["anamnese"]["sintomas"].'
+                                                </p>                                
+                                            </div>
+                
+                                            <div class="area-label-consulta-textarea">
+                                                <label for="procedimentos">Procedimentos:</label>
+                                                <p name="procedimentos" class="textarea-consulta">'.$consulta["procedimentos"].'</p>                                
+                                            </div>
+                
+                                            <div class="area-label-consulta-textarea">
+                                                <label for="prescricao">Prescrição:</label>
+                                                <p name="prescricao" class="textarea-consulta">'.$consulta["prescricao"]["remedios"].' '.$consulta["prescricao"]["tempo"].'</p>                                
+                                            </div>
+
+                                            <div class="area-label-consulta-textarea">
+                                                <label for="antecedentes">Fatores de risco/Antecedentes:</label>
+                                                <p name="antecedentes" class="textarea-consulta">
+                                                '.$consulta["anamnese"]["antecedentes"].'
+                                                </p>                                
+                                            </div>
+
+                                            <div class="area-label-consulta-textarea">
+                                                <label for="contraIndicacoes">Contra-indicações:</label>
+                                                <p name="contraIndicacoes" class="textarea-consulta">
+                                                '.$consulta["anamnese"]["contraIndicacoes"].'
+                                                </p>                                
+                                            </div>
+                
+                                            <button class="button-ver-menos">VER MENOS</button>
+                                        </div>
+                                    </div>
+                                    </div>';}
+                            }
                         ?>
                     </div>           
                 </div>
