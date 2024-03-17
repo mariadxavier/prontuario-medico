@@ -14,8 +14,7 @@
     <!-- Folha de estilo: -->
     <link rel="stylesheet" href="./src/css/paciente.css" />
     <!-- Javascript: -->
-    <script src="./src/js/troca-conteudo-pacienteHTML.js" defer></script>
-    <script src="./src/js/abrir-item-historico-paciente.js" defer></script>
+    <script type="module" src="./src/js/paciente.js" defer></script>
   </head>
   <body>
     <header>
@@ -277,6 +276,216 @@
                         ?>
                     </div>           
                 </div>
+
+                 <!-- Sessão: Consulta -->
+                <div class="consulta-paciente" style="display: none;">
+                    <div data-consulta="divs" class="anamnese-div-container div-selecionada">
+                        <!-- Essa nova div utilizada para separar o conteúdo do botão, deverá ser repensada no refatoramento -->
+                        <div class="container">
+                            <div class="anamnese-div-title">
+                                <h1>Anamnese</h1>
+                                <div class="title-div-informations">
+                                    <div class="area-label">
+                                        <label for="">Protocolo:</label>
+                                        <p>Dipirona</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Protocolo:</label>
+                                        <p>Dipirona</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Protocolo:</label>
+                                        <p>Dipirona</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Protocolo:</label>
+                                        <p>Dipirona</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Protocolo:</label>
+                                        <p>Dipirona</p>
+                                    </div>
+                                </div>
+                            
+                            </div>
+
+                            <div class="anemnese-space-bar"></div>
+                            
+                            <div class="ananmese-div-queixa">
+                                <h1>Queixa do Paciente</h1>
+                                <form action="" method="post">
+
+                                    <div>
+                                        <label for="queixa-atual">Atual:</label>
+                                        <input type="text" name="queixa-atual" id="">
+                                    </div>
+
+                                    <div>
+                                        <label for="queixa-progresso">Progresso:</label>
+                                        <input type="text" name="queixa-progresso" id="">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <button data-consulta="button" type="submit">Próximo</button>
+                    </div>
+
+                    <div data-consulta="divs" class="antecedentes-div-container">
+                        <div class="container">
+                            <h1>Fatores de Risco/Antecedentes</h1>
+                            <form action="" method="post">
+                                <div class="form-div-selects">
+                                    <div class="area-label">
+                                        <label for="hipertensao-arterial">Hipertensão:</label>
+                                        <input type="checkbox" value="" for="hipertensao-arterial" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="tabaquismo">Tabaquismo:</label>
+                                        <input type="checkbox" value="" for="tabaquismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="estresse">Estresse:</label>
+                                        <input type="checkbox" value="" for="estresse" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="sedentarismo">Sedentarismo:</label>
+                                        <input type="checkbox" value="" for="sedentarismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="obesidade">Obesidade:</label>
+                                        <input type="checkbox" value="" for="obesidade" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="avc">AVC:</label>
+                                        <input type="checkbox" value="" for="avc" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="hereditariedade">Hereditariedade:</label>
+                                        <input type="checkbox" value="" for="hereditariedade" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="menopausa">Menopausa:</label>
+                                        <input type="checkbox" value="" for="menopausa" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="diabetes">Diabetes:</label>
+                                        <input type="checkbox" value="" for="diabetes" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="hipercolesterolemia">Hipercolesterolemia:</label>
+                                        <input type="checkbox" value="" for="hipercolesterolemia" >
+                                    </div>
+
+                                </div>
+                                <div class="form-div-questions">
+                                    <div>
+                                        <label for="questions-outros">Outros:</label>
+                                        <input type="text" name="questions-outros" id="">
+                                    </div>
+                                    <div>
+                                        <label for="medicamentos">Medicamentos?</label>
+                                        <input type="text" name="medicamentos" id="" placeholder="Quais?">
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+                        <button data-consulta="button" type="submit">Próximo</button>
+                    </div>
+
+                    <div data-consulta="divs" class="contra-indicacoes-div-container">
+                        <div class="container">
+                            <h1>Contra-Inidicações</h1>
+                            <form action="" method="post">
+                                <div class="form-div-selects">
+                                    <div class="area-label">
+                                        <label for="hipertensao">Hipertensão:</label>
+                                        <input type="checkbox" value="" for="hipertensao" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="tabaquismo">Tabaquismo:</label>
+                                        <input type="checkbox" value="" for="tabaquismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="estresse">Estresse:</label>
+                                        <input type="checkbox" value="" for="estresse" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="sedentarismo">Sedentarismo:</label>
+                                        <input type="checkbox" value="" for="sedentarismo" >
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="obesidade">Obesidade:</label>
+                                        <input type="checkbox" value="" for="obesidade" >
+                                    </div>
+
+                                </div>
+                                <div class="form-div-questions">
+                                    <div>
+                                        <label for="questions-outros">Outros:</label>
+                                        <input type="text" name="questions-outros" id="">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <button data-consulta="button" type="submit">Próximo</button>
+                    </div>
+
+                    <div data-consulta="divs" class="diagnostico-div-container">
+                        <div class="container">
+                            <!-- <h1>Diagnóstico</h1> -->
+                            <div class="title-div-informations">
+                                <div class="area-label">
+                                    <label for="">Médico(a):</label>
+                                    <p>Dipirona</p>
+                                </div>
+                                <div class="informations-div-additional">
+                                    <div class="area-label">
+                                        <label for="">Data:</label>
+                                        <p>00/00/0000</p>
+                                    </div>
+                                    <div class="area-label">
+                                        <label for="">Hora:</label>
+                                        <p>00:00</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form class="form-div-questions" action="" method="post">
+                                <div>
+                                    <label for="diagnostico">Diagnóstico Médico:</label>
+                                    <input type="text" name="diagnostico" id="">
+                                </div>
+                                <div>
+                                    <label for="informacoes-adicionais">informações Adicionais:</label>
+                                    <input type="text" name="informacoes-adicionais" id="" placeholder="Sintomas e observações">
+                                </div>
+                                <div>
+                                    <label for="medicamento">Medicamento:</label>
+                                    <input type="text" name="medicamento" id="" placeholder="Medicamento, quantos dias, quantidade">
+                                </div>
+                                <div id="diagnostico-questions-retorno">
+                                    <label for="" id="question-retorno">Consulta de Retorno?</label>
+                                    <input type="text" name="" id="retorno-input-protocolo">
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div>
+                            <p>ID: 00000000000000000</p>
+                            <button data-consulta="button" type="submit">Próximo</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- FIm Sessão: Consulta -->
+
             </div>
        </div>
     </main>
