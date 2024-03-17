@@ -17,7 +17,7 @@ if ($listAside.length && $listContainers.length) {
             div.style.display = "none";
 
         });
-        $listContainers[index].style.display = "grid";
+        $listContainers[index].style.display = "flex";
         itemAside.classList.add("aba-selecionada");
     }
     
