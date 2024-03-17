@@ -167,7 +167,8 @@
           "prescricao" => $newConsulta->getPrescricao(),
           "anamnese" => $newConsulta->getAnamnese(),
           "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
-          "diagnostico" => $newConsulta->getDiagnostico()
+          "diagnostico" => $newConsulta->getDiagnostico(),
+          "procedimentos" => $newConsulta->getProcedimentos()
         ]);
         if(!$consulta){
           throw new Exception("Falha ao criar a consulta.");
