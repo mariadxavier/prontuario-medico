@@ -122,15 +122,17 @@ main {
 
 /* dados pessoais: */
 .div-show-dados-paciente .dados-pessoais-paciente {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     height: 100%;
     padding: 20px 30px;    
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     overflow-y: scroll;
 }
 
 .div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar {
-    width: 10px;               /* width da barra de rolagem */
+    width: 10px;   
+    margin: 5px 10px 0 0;            /* width da barra de rolagem */
 }
 
 .div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar-thumb {
@@ -173,6 +175,11 @@ main {
     border-radius: 100px;
     background: var(--color-darkAqua);
     margin-bottom: 5px;
+}
+
+.caracteristicas-paciente .item-caracteristicas-paciente:nth-child(8) {
+    grid-row: 4;
+    grid-column: 1/4;
 }
 
 .caracteristicas-paciente .item-caracteristicas-paciente:last-child {
@@ -248,7 +255,7 @@ main {
 .observacoes-paciente .conteudo-observacoes-paciente {
     background-color: var(--color-blue-opacity);
     border-radius: 20px;
-    width: fit-content;
+    width: 100%;
     padding: 10px;
     font-weight: 300;
     margin-top: -10px;
