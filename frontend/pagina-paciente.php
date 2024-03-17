@@ -226,7 +226,7 @@
                                     <div class="conteudo-consulta">
                                         <div class="item-minimizado">
                                             <div class="area-label-consulta">
-                                                <label for="id-consulta">ID:</label>
+                                                <label for="id-consulta">Protocolo:</label>
                                                 <p name="id-consulta">'.$consulta["id"].'</p>                                
                                             </div>
                                             
