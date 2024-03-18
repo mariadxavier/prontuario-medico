@@ -55,7 +55,7 @@
                 </ul>
             </nav>
             <div class="aside-buttons">
-                <button id="button-consulta">CONSULTA</button>
+                <button id="button-consulta" class="aside-select">CONSULTA</button>
                 <button id="button-busca">BUSCA</button>
             </div>
             </div>
@@ -278,10 +278,10 @@
                 </div>
 
                  <!-- Sessão: Consulta -->
-                <div class="consulta-paciente" style="display: none;">
+                <div class="container consulta-paciente" style="display: none;">
                     <div data-consulta="divs" class="anamnese-div-container div-selecionada">
                         <!-- Essa nova div utilizada para separar o conteúdo do botão, deverá ser repensada no refatoramento -->
-                        <div class="container">
+                        <div class="container-cadastro-consulta">
                             <div class="anamnese-div-title">
                                 <h1>Anamnese</h1>
                                 <div class="title-div-informations">
@@ -333,7 +333,7 @@
                     </div>
 
                     <div data-consulta="divs" class="antecedentes-div-container">
-                        <div class="container">
+                        <div class="container-cadastro-consulta">
                             <h1>Fatores de Risco/Antecedentes</h1>
                             <form action="" method="post">
                                 <div class="form-div-selects">
@@ -397,7 +397,7 @@
                     </div>
 
                     <div data-consulta="divs" class="contra-indicacoes-div-container">
-                        <div class="container">
+                        <div class="container-cadastro-consulta">
                             <h1>Contra-Inidicações</h1>
                             <form action="" method="post">
                                 <div class="form-div-selects">
@@ -437,7 +437,7 @@
                     </div>
 
                     <div data-consulta="divs" class="diagnostico-div-container">
-                        <div class="container">
+                        <div class="container-cadastro-consulta">
                             <!-- <h1>Diagnóstico</h1> -->
                             <div class="title-div-informations">
                                 <div class="area-label">
