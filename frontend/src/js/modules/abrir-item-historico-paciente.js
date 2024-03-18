@@ -1,4 +1,4 @@
-export function initAbrirHistorico() {
+export default function initAbrirHistorico() {
     // Botões:
     const $botaoAbrir = document.querySelectorAll(".button-ver-tudo");
     const $botaoFechar = document.querySelectorAll(".button-ver-menos");
