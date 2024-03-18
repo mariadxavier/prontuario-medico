@@ -4,6 +4,8 @@
     $id = $_GET["idPaciente"];
     $usuarioEncontrado = $db->getPacienteById($id);
     $collectionConsulta = $db->getConsultaByPacienteId($id);
+    $dataAtual = getdate();
+    // $db->setNewPaciente(new Paciente("Geraldo Josefino", "12345678910", "31899999999", "99999999", "Rua dos Bois", "N.B.", "12/31/2000", "Olavo de Carvalho", "Michele Lule", "Giogiana", "wearebacking@yahoo.com", "R+-", "1.50", "120Kg", "Genero Neutro", "idontwannabeyou"));
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -278,7 +280,7 @@
                 </div>
 
                  <!-- Sessão: Consulta -->
-                <div class="container consulta-paciente" style="display: none;">
+                <form class="container consulta-paciente" style="display: none;" method="post">
                     <div data-consulta="divs" class="anamnese-div-container div-selecionada">
                         <!-- Essa nova div utilizada para separar o conteúdo do botão, deverá ser repensada no refatoramento -->
                         <div class="container-cadastro-consulta">
@@ -286,24 +288,16 @@
                                 <h1>Anamnese</h1>
                                 <div class="title-div-informations">
                                     <div class="area-label">
-                                        <label for="">Protocolo:</label>
-                                        <p>Dipirona</p>
+                                        <label for="">Nome:</label>
+                                        <p><?php echo $usuarioEncontrado["nome"] ?></p>
                                     </div>
                                     <div class="area-label">
-                                        <label for="">Protocolo:</label>
-                                        <p>Dipirona</p>
+                                        <label for="">Data:</label>
+                                        <p><?php echo $dataAtual["mday"]."/".$dataAtual["mon"]."/".$dataAtual["year"] ?></p>
                                     </div>
                                     <div class="area-label">
-                                        <label for="">Protocolo:</label>
-                                        <p>Dipirona</p>
-                                    </div>
-                                    <div class="area-label">
-                                        <label for="">Protocolo:</label>
-                                        <p>Dipirona</p>
-                                    </div>
-                                    <div class="area-label">
-                                        <label for="">Protocolo:</label>
-                                        <p>Dipirona</p>
+                                        <label for="">Hora:</label>
+                                        <p><?php echo ($dataAtual["hours"]-4).":".$dataAtual["minutes"] ?></p>
                                     </div>
                                 </div>
                             
@@ -313,127 +307,128 @@
                             
                             <div class="ananmese-div-queixa">
                                 <h1>Queixa do Paciente</h1>
-                                <form action="" method="post">
+                                <div action="pagina-paciente.php" method="post" id="teste-form" class="form-div">
 
                                     <div>
-                                        <label for="queixa-atual">Atual:</label>
-                                        <input type="text" name="queixa-atual" id="">
+                                        <label  for="queixa-atual">Atual:</label>
+                                        <textarea type="text" name="queixa-atual" id="">OIII</textarea>
                                     </div>
 
                                     <div>
-                                        <label for="queixa-progresso">Progresso:</label>
-                                        <input type="text" name="queixa-progresso" id="">
+                                        <label for="queixa-progresso">Pregressa:</label>
+                                        <textarea type="text" name="queixa-pregressa" id=""></textarea>
                                     </div>
 
-                                </form>
+                                </div>
+                                
                             </div>
                         </div>
-
-                        <button data-consulta="button" type="submit">Próximo</button>
+                        
+                        <button data-consulta="button">Próximo</button>
                     </div>
 
                     <div data-consulta="divs" class="antecedentes-div-container">
                         <div class="container-cadastro-consulta">
                             <h1>Fatores de Risco/Antecedentes</h1>
-                            <form action="" method="post">
+                            <div action="" method="post" class="form-div">
                                 <div class="form-div-selects">
                                     <div class="area-label">
                                         <label for="hipertensao-arterial">Hipertensão:</label>
-                                        <input type="checkbox" value="" for="hipertensao-arterial" >
+                                        <input type="checkbox" value="" name="hipertensao" for="hipertensao-arterial" >
                                     </div>
                                     <div class="area-label">
                                         <label for="tabaquismo">Tabaquismo:</label>
-                                        <input type="checkbox" value="" for="tabaquismo" >
+                                        <input type="checkbox" value="" name="tabaquismo" for="tabaquismo" >
                                     </div>
                                     <div class="area-label">
                                         <label for="estresse">Estresse:</label>
-                                        <input type="checkbox" value="" for="estresse" >
+                                        <input type="checkbox" value="" name="estresse" for="estresse" >
                                     </div>
                                     <div class="area-label">
                                         <label for="sedentarismo">Sedentarismo:</label>
-                                        <input type="checkbox" value="" for="sedentarismo" >
+                                        <input type="checkbox" value="" name="sedentarismo" for="sedentarismo" >
                                     </div>
                                     <div class="area-label">
                                         <label for="obesidade">Obesidade:</label>
-                                        <input type="checkbox" value="" for="obesidade" >
+                                        <input type="checkbox" value="" name="obesidade" for="obesidade" >
                                     </div>
                                     <div class="area-label">
                                         <label for="avc">AVC:</label>
-                                        <input type="checkbox" value="" for="avc" >
+                                        <input type="checkbox" value="" name="avc" for="avc" >
                                     </div>
                                     <div class="area-label">
                                         <label for="hereditariedade">Hereditariedade:</label>
-                                        <input type="checkbox" value="" for="hereditariedade" >
+                                        <input type="checkbox" value="" name="hereditariedade" for="hereditariedade" >
                                     </div>
                                     <div class="area-label">
                                         <label for="menopausa">Menopausa:</label>
-                                        <input type="checkbox" value="" for="menopausa" >
+                                        <input type="checkbox" value="" name="menopausa" for="menopausa" >
                                     </div>
                                     <div class="area-label">
                                         <label for="diabetes">Diabetes:</label>
-                                        <input type="checkbox" value="" for="diabetes" >
+                                        <input type="checkbox" value="" name="diabetes" for="diabetes" >
                                     </div>
                                     <div class="area-label">
                                         <label for="hipercolesterolemia">Hipercolesterolemia:</label>
-                                        <input type="checkbox" value="" for="hipercolesterolemia" >
+                                        <input type="checkbox" value="" name="hipercolesterolemia" for="hipercolesterolemia" >
                                     </div>
 
                                 </div>
                                 <div class="form-div-questions">
                                     <div>
                                         <label for="questions-outros">Outros:</label>
-                                        <input type="text" name="questions-outros" id="">
+                                        <textarea type="text" name="outros-antecedentes" id=""></textarea>
                                     </div>
                                     <div>
                                         <label for="medicamentos">Medicamentos?</label>
-                                        <input type="text" name="medicamentos" id="" placeholder="Quais?">
+                                        <textarea type="text" name="medicamentos" id="" placeholder="Quais"></textarea>
                                     </div>
 
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
-                        <button data-consulta="button" type="submit">Próximo</button>
+                        <button data-consulta="button">Próximo</button>
                     </div>
 
                     <div data-consulta="divs" class="contra-indicacoes-div-container">
                         <div class="container-cadastro-consulta">
                             <h1>Contra-Inidicações</h1>
-                            <form action="" method="post">
+                            <div action="" method="post" class="form-div">
                                 <div class="form-div-selects">
                                     <div class="area-label">
-                                        <label for="hipertensao">Hipertensão:</label>
-                                        <input type="checkbox" value="" for="hipertensao" >
+                                        <label for="traumatismos">Traumatismos:</label>
+                                        <input type="checkbox" value="" for="traumatismo" name="traumatismos">
                                     </div>
                                     <div class="area-label">
-                                        <label for="tabaquismo">Tabaquismo:</label>
-                                        <input type="checkbox" value="" for="tabaquismo" >
+                                        <label for="cirurgias">Cirurgias:</label>
+                                        <input type="checkbox" value="" for="cirurgias" name="cirurgias" >
                                     </div>
                                     <div class="area-label">
-                                        <label for="estresse">Estresse:</label>
-                                        <input type="checkbox" value="" for="estresse" >
+                                        <label for="ulcera">Úlcera:</label>
+                                        <input type="checkbox" value="" for="ulcera" name="ulcera" >
                                     </div>
                                     <div class="area-label">
-                                        <label for="sedentarismo">Sedentarismo:</label>
-                                        <input type="checkbox" value="" for="sedentarismo" >
+                                        <label for="sangramento">Sangramento:</label>
+                                        <input type="checkbox" value="" for="sangramento" name="sangramento" >
                                     </div>
                                     <div class="area-label">
-                                        <label for="obesidade">Obesidade:</label>
-                                        <input type="checkbox" value="" for="obesidade" >
+                                        <label for="coagulopatia">Coagulopatia:</label>
+                                        <input type="checkbox" value="" for="coagulopatia" name="coagulopatia" >
                                     </div>
 
                                 </div>
                                 <div class="form-div-questions">
                                     <div>
                                         <label for="questions-outros">Outros:</label>
-                                        <input type="text" name="questions-outros" id="">
+                                        <textarea type="text" name="contra-indicacoes-outros" id=""></textarea>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
 
-                        <button data-consulta="button" type="submit">Próximo</button>
+                        <button data-consulta="button">Próximo</button>
                     </div>
 
                     <div data-consulta="divs" class="diagnostico-div-container">
@@ -456,34 +451,81 @@
                                 </div>
                             </div>
 
-                            <form class="form-div-questions" action="" method="post">
+                            <div class="form-div-questions" action="" method="post" class="form-div">
                                 <div>
                                     <label for="diagnostico">Diagnóstico Médico:</label>
-                                    <input type="text" name="diagnostico" id="">
+                                    <textarea type="text" name="diagnostico" id=""></textarea>
                                 </div>
                                 <div>
                                     <label for="informacoes-adicionais">informações Adicionais:</label>
-                                    <input type="text" name="informacoes-adicionais" id="" placeholder="Sintomas e observações">
+                                    <textarea type="text" name="informacoes-adicionais" id="" placeholder="Sintomas e observações"></textarea>
                                 </div>
                                 <div>
                                     <label for="medicamento">Medicamento:</label>
-                                    <input type="text" name="medicamento" id="" placeholder="Medicamento, quantos dias, quantidade">
+                                    <textarea type="text" name="medicamento" id="" placeholder="Medicamento, quantos dias, quantidade"></textarea>
                                 </div>
                                 <div id="diagnostico-questions-retorno">
                                     <label for="" id="question-retorno">Consulta de Retorno?</label>
-                                    <input type="text" name="" id="retorno-input-protocolo">
+                                    <textarea type="text" name="retorno" name="input-antecedentes" id="retorno-input-protocolo"></textarea>
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
 
                         <div>
+                            <?php 
+
+                                $_POST['queixa-atual']  = (isset($_POST['queixa-atual']))  ? true : null;
+                                $_POST['queixa-pregressa']  = (isset($_POST['queixa-pregressa']))  ? true : null;
+
+                                $_POST['hipertensao']  = (isset($_POST['hipertensao']))  ? true : null;
+                                $_POST['tabaquismo']  = (isset($_POST['tabaquismo']))  ? true : null;
+                                $_POST['tabaquismo']  = (isset($_POST['tabaquismo']))  ? true : null;
+                                $_POST['estresse']  = (isset($_POST['estresse']))  ? true : null;
+                                $_POST['sedentarismo']  = (isset($_POST['sedentarismo']))  ? true : null;
+                                $_POST['obesidade']  = (isset($_POST['obesidade']))  ? true : null;
+                                $_POST['avc']  = (isset($_POST['avc']))  ? true : null;
+                                $_POST['hereditariedade']  = (isset($_POST['hereditariedade']))  ? true : null;
+                                $_POST['menopausa']  = (isset($_POST['menopausa']))  ? true : null;
+                                $_POST['diabetes']  = (isset($_POST['diabetes']))  ? true : null;
+                                $_POST['hipercolesterolemia']  = (isset($_POST['hipercolesterolemia']))  ? true : null;
+                                $_POST['outros-antecedentes']  = (isset($_POST['outros-antecedentes']))  ? $_POST['outros-antecedentes'] : null;
+                                $_POST['input-antecedentes']  = (isset($_POST['input-antecedentes']))  ? $_POST['input-antecedentes'] : null;
+
+                                $_POST['traumatismos']  = (isset($_POST['traumatismos']))  ? true : null;
+                                $_POST['cirurgias']  = (isset($_POST['cirurgias']))  ? true : null;
+                                $_POST['ulcera']  = (isset($_POST['ulcera']))  ? true : null;
+                                $_POST['sangramento']  = (isset($_POST['sangramento']))  ? true : null;
+                                $_POST['coagulopatia']  = (isset($_POST['coagulopatia']))  ? true : null;
+                                $_POST['contra-indicacoes-outros']  = (isset($_POST['contra-indicacoes-outros']))  ? true : null;
+
+
+                                var_dump($anamnese);
+                                
+                                if(isset($_GET["retorno"])) {
+                                    $anamnese = [
+                                        "queixa" => 
+                                        ["queixaAtual" => $_POST["queixa-atual"], "queixaPregressa" => $_POST["queixa-pregressa"]], 
+    
+                                        "antecedentes" => 
+                                        ["checkbox" =>["hipertensao" => $_POST["hipertensao"], ["tabaquismo" => $_POST["tabaquismo"]], ["estresse" => $_POST["estresse"]], ["sedentarismo" => $_POST["sedentarismo"]], ["obesidade" => $_POST["obesidade"]], ["avc" => $_POST["avc"]], ["hereditariedade" => $_POST["hereditariedade"]], ["menopausa" => $_POST["menopausa"]], ["diabetes" => $_POST["diabetes"]], ["hipercolesterolemia" => $_POST["hipercolesterolemia"]]],
+                                        "texts" => ["outros-antecedentes" => $_POST["outros-antecedentes"]], ["input-antecedentes" => $_POST["input-antecedentes"]]], 
+                                        
+                                        "contraIndicacoes" => 
+                                        ["checkbox" => ["traumatismos" => $_POST["traumatismos"], "cirurgias" => $_POST["cirurgias"], "ulcera" => $_POST["ulcera"], "sangramento" => $_POST["sangramento"], "coagulopatia" => $_POST["coagulopatia"]], 
+                                        "texts" => ["contra-indicacoes-outros" => $_POST["contra-indicacoes-outros"]]]
+                                    ];
+                 
+
+                                    // new Consulta($idMedico, $usuarioEncontrado["id"], $prescricao, $anamnese, $diagnostico, $dadosAdicionais, $procedimentos);
+                                }
+                            ?>
                             <p>ID: 00000000000000000</p>
-                            <button data-consulta="button" type="submit">Próximo</button>
+                            <button data-consulta="button" type="submit">Salvar</button>
                         </div>
                     </div>
 
-                </div>
+                </form>
                 <!-- FIm Sessão: Consulta -->
 
             </div>

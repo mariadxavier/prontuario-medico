@@ -51,41 +51,44 @@
         <?php 
           if(isset($_GET["search-user"])) {
             $usuarioBuscado = $_GET["search-user"];
-            $usuarioEncontrado = $db->getPacienteByCpf($usuarioBuscado);
 
-            foreach($usuarioEncontrado as $usuario){
-              echo '<div id="'.$usuario["id"].'" class="mostrar-paciente-buscado">
-              <div class="area-id-paciente">
-                <h2 class="title-area-id-paciente">'.$usuario["id"].' </h2>
-              </div>
-    
-              <div class="conteudo-paciente-buscado">
-                <div class="dado-paciente-buscado">
-                  <label for="nome">Nome: </label>
-                  <p name="nome">'.$usuario["nome"].'</p>
-                </div>
-    
-                <div class="dado-paciente-buscado">
-                  <label for="nascimento">Data de Nascimento: </label>
-                  <p name="nascimento">'.$usuario["nascimento"].'</p>
-                </div>
-    
-                <div class="dado-paciente-buscado">
-                  <label for="cpf">CPF: </label>
-                  <p name="cpf">'.$usuario["cpf"].'</p>
-                </div>
-              </div>
-            </div>';
-
-
-            }  
-            // header("location:pagina-paciente.php?idPaciente=".);
+            try{
+              $usuarioEncontrado = $db->getPacienteByCpf($usuarioBuscado);
+              if(!is_array($usuarioEncontrado)){
+                throw new Exception("Paciente não encontrado. Cadastre-o caso necessário");
+              } else {             
+                foreach($usuarioEncontrado as $usuario){
+                  echo '<div id="'.$usuario["id"].'" class="mostrar-paciente-buscado">
+                    <div class="area-id-paciente">
+                    <h2 class="title-area-id-paciente">'.$usuario["id"].' </h2>
+                  </div>
+        
+                    <div class="conteudo-paciente-buscado">
+                      <div class="dado-paciente-buscado">
+                        <label for="nome">Nome: </label>
+                        <p name="nome">'.$usuario["nome"].'</p>
+                      </div>
+        
+                      <div class="dado-paciente-buscado">
+                        <label for="nascimento">Data de Nascimento: </label>
+                        <p name="nascimento">'.$usuario["nascimento"].'</p>
+                      </div>
+        
+                      <div class="dado-paciente-buscado">
+                        <label for="cpf">CPF: </label>
+                        <p name="cpf">'.$usuario["cpf"].'</p>
+                      </div>
+                    </div>
+                  </div>';
+                }
+              };
+            }catch(Exception $err){
+              echo $err->getMessage();
+            }
           }
         ?>
         </div>
       </div>
     </section>
-    <!-- "http://localhost/prontuario-medico/frontend/home.php?search-user=123456789-12&teste=123">-->
-
   </body>
 </html>
