@@ -91,6 +91,7 @@
           "altura" =>$newPaciente->getAltura(),
           "peso" =>$newPaciente->getPeso(),
           "alergias" =>$newPaciente->getAlergias(),
+          "observacoes"=>$newPaciente->getObservacoes()
         ]);
         if(!$paciente){
           throw new Exception("Falha ao cadastrar o paciente.");
@@ -166,7 +167,8 @@
           "prescricao" => $newConsulta->getPrescricao(),
           "anamnese" => $newConsulta->getAnamnese(),
           "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
-          "diagnostico" => $newConsulta->getDiagnostico()
+          "diagnostico" => $newConsulta->getDiagnostico(),
+          "procedimentos" => $newConsulta->getProcedimentos()
         ]);
         if(!$consulta){
           throw new Exception("Falha ao criar a consulta.");

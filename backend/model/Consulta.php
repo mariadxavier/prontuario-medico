@@ -7,13 +7,15 @@
     private array $anamnese;
     private string $dadosAdicionais;
     private string $diagnostico;
-    public function __construct($idMedico, $idPaciente, $prescricao, $anamnese, $diagnostico, $dadosAdicionais,) {
+    private string $procedimentos;
+    public function __construct($idMedico, $idPaciente, $prescricao, $anamnese, $diagnostico, $dadosAdicionais, $procedimentos) {
       $this->idMedico = $idMedico;
       $this->idPaciente = $idPaciente;
       $this->prescricao = $prescricao;
       $this->anamnese = $anamnese;
       $this->dadosAdicionais = strtoupper($dadosAdicionais);
       $this->diagnostico = strtoupper($diagnostico);
+      $this->procedimentos = strtoupper($procedimentos);
     }
 
     public function getIdMedico() {
@@ -39,6 +41,9 @@
       return $this->diagnostico;
     }
 
+    public function getProcedimentos() {
+      return $this->procedimentos;
+    }
   }
 
 ?>

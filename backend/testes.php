@@ -15,6 +15,17 @@
   // $consultaID = $db->setNewPrescricao("241dcecb-1643-48b2-9387-9d608451ef8f", "4dd98ebb-ae6b-4b3e-a04d-d70710623d06", "137274d0-fe9c-480a-be78-9cfaf294ee12")
   // $consultaID = $db->setNewConsulta("241dcecb-1643-48b2-9387-9d608451ef8f","71865e18-c168-4f55-bd54-1187357e114f");
   // $consultaID = $db->setNewMedico("777-777-777", "João Pedro")
+
+// $consultaTulio3 = new Consulta("12456789-51321-456123", "c31f9b30-9fa8-427c-aa34-cdb13169127b", array("remedios"=>"Dipirona"), array("sintomas"=>"febre, dor de cabeça", "antecedentes"=>"nenhum","contraIndicacoes"=>"nenhum"), "Dengue", "Nenhum", "Exame de sangue após 8h de jejum");
+// $novaConsulta3 = $db->setNewConsulta($consultaTulio3);
+
+// $consultaMaria = new Consulta("12456789-51321-456123", "c31f9b30-9fa8-427c-aa34-cdb13169127b", array("remedios"=>"Paracetamol", "tempo" => "A cada 8 horas"), array("sintomas"=>"Dor no ombro, membro ligeiramente fora do lugar, membro sem movimentação", "antecedentes"=>"Fratura no rádio","contraIndicacoes"=>"nenhum"), "Ombro deslocado", "Uma semana de repouso, com fisioterapia", "Recolocação do membro com Ortopedista");
+// $novaConsulta4 = $db->setNewConsulta($consultaMaria);
+
+// $teste = $db->getPacienteByNome("Maria Eduarda Xavier Vidigal");
+// var_dump($teste);
+
+
 ?>
 
 <!DOCTYPE html>
