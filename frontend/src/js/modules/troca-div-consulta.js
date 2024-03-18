@@ -3,7 +3,8 @@ export default function initTrocaDivConsulta() {
     const buttonsTrocaDiv = document.querySelectorAll('[data-consulta="button"]');
     let cont = 0;
 
-    function proximaTela() {
+    function proximaTela(event) {
+        event.preventDefault();
         divs[cont++];
         divs.forEach((div) => {
             div.classList.remove('div-selecionada');
