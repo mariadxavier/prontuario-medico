@@ -45,18 +45,16 @@
         <form action="" method="get" class="apresentation-form">
           <input type="text" name="search-user" id="search-user" placeholder="Nome ou CPF">
           <input type="submit" value="Buscar" id="search-button">
-        </form>
+        </form>       
 
-        
-
-
+        <div class="pacientes-retornados">
         <?php 
           if(isset($_GET["search-user"])) {
             $usuarioBuscado = $_GET["search-user"];
-            $usuarioEncontrado = $db->getPacienteByNome($usuarioBuscado);
+            $usuarioEncontrado = $db->getPacienteByCpf($usuarioBuscado);
 
             foreach($usuarioEncontrado as $usuario){
-              echo '<div class="mostrar-paciente-buscado">
+              echo '<div id="'.$usuario["id"].'" class="mostrar-paciente-buscado">
               <div class="area-id-paciente">
                 <h2 class="title-area-id-paciente">'.$usuario["id"].' </h2>
               </div>
@@ -81,9 +79,10 @@
 
 
             }  
-            // header("location:pagina-paciente.php?idPaciente=01ad8604-f10f-4df8-b3e9-bf66385a3309");
+            // header("location:pagina-paciente.php?idPaciente=".);
           }
         ?>
+        </div>
       </div>
     </section>
     <!-- "http://localhost/prontuario-medico/frontend/home.php?search-user=123456789-12&teste=123">-->
