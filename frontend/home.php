@@ -1,5 +1,7 @@
 <?php
   require_once "../backend/model/connectionDB.php"; 
+  $usuarioId = null;
+  $db = new ConnectionDB();
 ?>
 
 <!DOCTYPE html>
@@ -7,8 +9,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Como será feito o link das páginas css? Usará Import? -->
+    <!-- Estilo: -->
     <link rel="stylesheet" href="./src/css/home.css" />
+    <!-- Funções JS: -->
+    <script src="./src/js/modules/selecionar-paciente-buscado.js" defer></script>
     <title>Início</title>
   </head>
   <body>
@@ -43,22 +47,40 @@
           <input type="submit" value="Buscar" id="search-button">
         </form>
 
+        
+
+
         <?php 
           if(isset($_GET["search-user"])) {
             $usuarioBuscado = $_GET["search-user"];
-            $usuarioId = null;
-            $db = new ConnectionDB();
-            $usuarioEncontrado = $db->getPacienteByCpf($usuarioBuscado);
-            var_dump($usuarioEncontrado);
+            $usuarioEncontrado = $db->getPacienteByNome($usuarioBuscado);
 
-            if (!$usuarioEncontrado) {
-              $usuarioEncontrado = $db->getPacienteByNome($usuarioBuscado);
-              var_dump($usuarioEncontrado);
-            }
+            foreach($usuarioEncontrado as $usuario){
+              echo '<div class="mostrar-paciente-buscado">
+              <div class="area-id-paciente">
+                <h2 class="title-area-id-paciente">'.$usuario["id"].' </h2>
+              </div>
+    
+              <div class="conteudo-paciente-buscado">
+                <div class="dado-paciente-buscado">
+                  <label for="nome">Nome: </label>
+                  <p name="nome">'.$usuario["nome"].'</p>
+                </div>
+    
+                <div class="dado-paciente-buscado">
+                  <label for="nascimento">Data de Nascimento: </label>
+                  <p name="nascimento">'.$usuario["nascimento"].'</p>
+                </div>
+    
+                <div class="dado-paciente-buscado">
+                  <label for="cpf">CPF: </label>
+                  <p name="cpf">'.$usuario["cpf"].'</p>
+                </div>
+              </div>
+            </div>';
 
-            // foreach($usuarioEncontrado as $usuario){
-            //   echo "achou";
-            // }  
+
+            }  
             // header("location:pagina-paciente.php?idPaciente=01ad8604-f10f-4df8-b3e9-bf66385a3309");
           }
         ?>

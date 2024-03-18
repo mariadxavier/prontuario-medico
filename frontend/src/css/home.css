@@ -28,6 +28,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
+    min-height: 30vh;
     height: fit-content;
     width: 100%;
 
@@ -74,15 +75,26 @@
     color: var(--color-white);
     font-weight: 600;
 }
+
+#search-button:hover {
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    background-color: var(--color-darkAqua);
+}
 /* Formulário / Barra de pesquisa */
 
 /* div que mostra dados dos usuários retornados na pesquisa: */
 .mostrar-paciente-buscado {
     width: 75%;
     height: fit-content;
-    padding: 20px;
     border-radius: 20px;
     background-color: var(--color-white);
+} 
+
+.mostrar-paciente-buscado:hover {
+    cursor: pointer;
+    scale: 1.05;
+    transition: 0.4s ease-in-out;
 }
 
 .mostrar-paciente-buscado .area-id-paciente {
@@ -102,7 +114,11 @@
     gap: 5px;
 }
 
-.mostrar-paciente-buscado .conteudo-paciente-buscado:first-child {
+.conteudo-paciente-buscado .dado-paciente-buscado {
+    gap: 5px;
+}
+
+.conteudo-paciente-buscado .dado-paciente-buscado:first-child {
     grid-row: 1;
     grid-column: 1/3;
 }
