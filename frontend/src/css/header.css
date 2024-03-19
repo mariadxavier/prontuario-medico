@@ -38,7 +38,6 @@ header {
 .header-div-container {
     display: flex;
     align-items: center;
-    /* width: 44vw; */
     justify-content: space-between;
     gap: 20px;
 }
