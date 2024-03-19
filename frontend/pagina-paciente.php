@@ -1,6 +1,10 @@
 <?php
     require_once "../backend/model/connectionDB.php";
     $db = new ConnectionDB();
+    session_start();
+    $nomeMedico = $_SESSION["nomeMedico"];
+    $idMedico = $_SESSION["idMedico"];
+    $medico = $db->getMedicoById($idMedico);
     $id = $_GET["idPaciente"];
     $usuarioEncontrado = $db->getPacienteById($id);
     $collectionConsulta = $db->getConsultaByPacienteId($id);
@@ -30,7 +34,7 @@
             </li>
           </ul>
           <div class="container-div-user">
-            <p class="user-p-name">Nome Medico</p>
+            <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
             <img class="user-img-chevron" src="./src/img/chevron.svg" alt="" />
           </div>
         </div>
