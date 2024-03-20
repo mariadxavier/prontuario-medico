@@ -54,8 +54,7 @@
               } catch (Exception $erro) {
                 echo $erro->getMessage();
               }
-            }
-            
+            }           
             
           ?>
         </section>

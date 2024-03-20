@@ -36,7 +36,7 @@ main {
 }
 
 .aside-dados-paciente .aside-title {
-  background-color: var(--color-mediumAqua);
+  background-color: var(--color-darkAqua);
   color: var(--color-white);
   border-radius: 20px 0 0 0;
   display: flex;
@@ -93,19 +93,21 @@ main {
     align-items: center;
 }
 
-.aside-dados-paciente .aside-buttons button {
+.aside-dados-paciente .aside-buttons button, .aside-buttons #button-busca {
     border: 0px none transparent;
-    background-color: var(--color-mediumAqua);
+    background-color: var(--color-darkAqua);
     color: var(--color-white);
     border-radius: 50px;
     padding: 10px;
     width: 90%;
     font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
 }
 
-.aside-dados-paciente .aside-buttons button:hover {
+.aside-dados-paciente .aside-buttons #button-busca:hover {
     cursor: pointer;
-    background-color: var(--color-blue);
+    background-color: var(--color-mediumAqua);
     transition: 0.4s ease-in-out;
 }
 /* fim area de navegação*/

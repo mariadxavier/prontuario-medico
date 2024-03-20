@@ -9,7 +9,6 @@
     $usuarioEncontrado = $db->getPacienteById($id);
     $collectionConsulta = $db->getConsultaByPacienteId($id);
     date_default_timezone_set('America/Sao_Paulo');
-    // $db->setNewPaciente(new Paciente("Geraldo Josefino", "12345678910", "31899999999", "99999999", "Rua dos Bois", "N.B.", "12/31/2000", "Olavo de Carvalho", "Michele Lule", "Giogiana", "wearebacking@yahoo.com", "R+-", "1.50", "120Kg", "Genero Neutro", "idontwannabeyou"));
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +21,10 @@
     <link rel="stylesheet" href="./src/css/paciente.css" />
     <!-- Javascript: -->
     <script type="module" src="./src/js/paciente.js" defer></script>
+    <script src="./src/js/clique-header-logo.js" defer></script>
   </head>
   <body>
-    <header>
+  <header>
       <div class="header-container">
         <div class="header-div-logo">
           <img src="./src/img/logo.svg" alt="" />
@@ -32,9 +32,7 @@
         </div>
         <div class="header-div-container">
           <ul class="container-ul-links">
-            <li class="links-li-link" id="novo-paciente-link">
-              <a href="#">Novo Paciente</a>
-            </li>
+            <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
           </ul>
           <div class="container-div-user">
             <p class="user-p-name"><?php echo $medico["nome"]; ?></p>

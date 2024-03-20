@@ -30,7 +30,7 @@
         </div>
         <div class="header-div-container">
           <ul class="container-ul-links">
-            <li class="links-li-link" id="novo-paciente-link"><a href="#">Novo Paciente</a></li>
+            <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
           </ul>
           <div class="container-div-user">
             <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
