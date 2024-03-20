@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="./src/css/cadastro.css" />
     <!-- Javascript: -->
     <script type="module" src="./src/js/paciente.js" defer></script>
+    <script src="./src/js/clique-header-logo.js" defer></script>
   </head>
   <body>
-    <header>
+  <header>
       <div class="header-container">
         <div class="header-div-logo">
           <img src="./src/img/logo.svg" alt="" />
@@ -26,9 +27,7 @@
         </div>
         <div class="header-div-container">
           <ul class="container-ul-links">
-            <li class="links-li-link" id="novo-paciente-link">
-              <a href="#">Novo Paciente</a>
-            </li>
+            <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
           </ul>
           <div class="container-div-user">
             <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
@@ -52,7 +51,7 @@
                 </ul>
             </nav>
             <div class="aside-buttons">
-                <button id="button-busca">BUSCA</button>
+                <a href="home.php" id="button-busca">BUSCA</a>
             </div>
             </div>
             </aside>

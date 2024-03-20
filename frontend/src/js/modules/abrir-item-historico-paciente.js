@@ -8,7 +8,6 @@ export default function initAbrirHistorico() {
     
     // nodeList com todos os itens do histórico(consultas):
     const $consultas = document.querySelectorAll(".consulta");
-    console.log("$consultas");
     
     if ($consultas.length) {
         $consultas.forEach((elem, index) => {

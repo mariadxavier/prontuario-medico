@@ -8,9 +8,9 @@
     $id = $_GET["idPaciente"];
     $usuarioEncontrado = $db->getPacienteById($id);
     $collectionConsulta = $db->getConsultaByPacienteId($id);
-    $dataAtual = getdate();
-    // $db->setNewPaciente(new Paciente("Geraldo Josefino", "12345678910", "31899999999", "99999999", "Rua dos Bois", "N.B.", "12/31/2000", "Olavo de Carvalho", "Michele Lule", "Giogiana", "wearebacking@yahoo.com", "R+-", "1.50", "120Kg", "Genero Neutro", "idontwannabeyou"));
+    date_default_timezone_set('America/Sao_Paulo');
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -21,9 +21,10 @@
     <link rel="stylesheet" href="./src/css/paciente.css" />
     <!-- Javascript: -->
     <script type="module" src="./src/js/paciente.js" defer></script>
+    <script src="./src/js/clique-header-logo.js" defer></script>
   </head>
   <body>
-    <header>
+  <header>
       <div class="header-container">
         <div class="header-div-logo">
           <img src="./src/img/logo.svg" alt="" />
@@ -31,9 +32,7 @@
         </div>
         <div class="header-div-container">
           <ul class="container-ul-links">
-            <li class="links-li-link" id="novo-paciente-link">
-              <a href="#">Novo Paciente</a>
-            </li>
+            <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
           </ul>
           <div class="container-div-user">
             <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
@@ -61,7 +60,7 @@
             </nav>
             <div class="aside-buttons">
                 <button id="button-consulta" class="aside-select">CONSULTA</button>
-                <button id="button-busca">BUSCA</button>
+                <a href="home.php" id="button-busca">BUSCA</a>
             </div>
             </div>
             </aside>
@@ -219,8 +218,12 @@
                 <div class="container historico-paciente" style="display: none">
                     <div class="container-historico" >                        
                         <?php 
-                            if($collectionConsulta) {                        
-                                foreach($collectionConsulta as $consulta) {                            
+
+                            try
+                            { if(!is_array($collectionConsulta)){
+                                throw new Exception ("Sem consultas cadastradas");
+                                } else {
+                                    foreach($collectionConsulta as $consulta) {                            
                                     // para cada consulta retornada do paciente consulta, imprime essa div, com os dados da mesma:
                                     echo '<div class="item-historico consulta">
                                     <div class="area-title-consulta">
@@ -276,7 +279,11 @@
                                             <button class="button-ver-menos">VER MENOS</button>
                                         </div>
                                     </div>
-                                    </div>';}
+                                    </div>';
+                                    }
+                                }
+                            }catch (Exception $error){
+                                echo $error->getMessage();
                             }
                         ?>
                     </div>           
@@ -296,11 +303,11 @@
                                     </div>
                                     <div class="area-label">
                                         <label for="">Data:</label>
-                                        <p><?php echo $dataAtual["mday"]."/".$dataAtual["mon"]."/".$dataAtual["year"] ?></p>
+                                        <p><?php echo date("d/m/Y") ?></p>
                                     </div>
                                     <div class="area-label">
                                         <label for="">Hora:</label>
-                                        <p><?php echo ($dataAtual["hours"]-4).":".$dataAtual["minutes"] ?></p>
+                                        <p><?php echo date("H:i:s") ?></p>
                                     </div>
                                 </div>
                             
@@ -440,16 +447,16 @@
                             <div class="title-div-informations">
                                 <div class="area-label">
                                     <label for="">Médico(a):</label>
-                                    <p>Dipirona</p>
+                                    <p><?php echo $medico["nome"]; ?></p>
                                 </div>
                                 <div class="informations-div-additional">
                                     <div class="area-label">
                                         <label for="">Data:</label>
-                                        <p>00/00/0000</p>
+                                        <p> <?php echo date("d/m/Y"); ?></p>
                                     </div>
                                     <div class="area-label">
                                         <label for="">Hora:</label>
-                                        <p>00:00</p>
+                                        <p> <?php echo date("H:i:s"); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -501,9 +508,6 @@
                                 $_POST['sangramento']  = (isset($_POST['sangramento']))  ? true : null;
                                 $_POST['coagulopatia']  = (isset($_POST['coagulopatia']))  ? true : null;
                                 $_POST['contra-indicacoes-outros']  = (isset($_POST['contra-indicacoes-outros']))  ? true : null;
-
-
-                                var_dump($anamnese);
                                 
                                 if(isset($_GET["retorno"])) {
                                     $anamnese = [
@@ -523,7 +527,6 @@
                                     // new Consulta($idMedico, $usuarioEncontrado["id"], $prescricao, $anamnese, $diagnostico, $dadosAdicionais, $procedimentos);
                                 }
                             ?>
-                            <p>ID: 00000000000000000</p>
                             <button data-consulta="button" type="submit">Salvar</button>
                         </div>
                     </div>
