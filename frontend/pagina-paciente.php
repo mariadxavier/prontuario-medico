@@ -37,7 +37,6 @@
           </ul>
           <div class="container-div-user">
             <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
-            <img class="user-img-chevron" src="./src/img/chevron.svg" alt="" />
           </div>
         </div>
       </div>

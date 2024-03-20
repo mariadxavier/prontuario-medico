@@ -1,9 +1,10 @@
 <?php
-    // require_once "../backend/model/connectionDB.php";
-    // $db = new ConnectionDB();
-    // $id = $_GET["idPaciente"];
-    // $usuarioEncontrado = ";
-    // $collectionConsulta = $db->getConsultaByPacienteId($id);
+    require_once "../backend/model/connectionDB.php";
+    $db = new ConnectionDB();
+    session_start();
+    $nomeMedico = $_SESSION["nomeMedico"];
+    $idMedico = $_SESSION["idMedico"];
+    $medico = $db->getMedicoById($idMedico);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,8 +31,7 @@
             </li>
           </ul>
           <div class="container-div-user">
-            <p class="user-p-name">Nome Medico</p>
-            <img class="user-img-chevron" src="./src/img/chevron.svg" alt="" />
+            <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
           </div>
         </div>
       </div>
@@ -98,10 +98,10 @@
                             >Raça:
                         </label>
                         <select name="raca" required>
-                            <option value="branco">Braco</option>
+                            <option value="branco">Branco</option>
                             <option value="preto">Preto</option>
                             <option value="pardo">Pardo</option>
-                            <option value="indigena">Indigena</option>
+                            <option value="indigena">Indígena</option>
                             <option value="amarelo">Amarelo</option>
                         </select>
                         </div>
