@@ -2,6 +2,11 @@
   require_once "../backend/model/connectionDB.php"; 
   $usuarioId = null;
   $db = new ConnectionDB();
+  session_start();
+  $idMedico = $_SESSION["idMedico"];
+  $medico = $db->getMedicoById($idMedico);
+  $_SESSION["nomeMedico"] = $medico["nome"];
+  
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +33,7 @@
             <li class="links-li-link" id="novo-paciente-link"><a href="#">Novo Paciente</a></li>
           </ul>
           <div class="container-div-user">
-            <p class="user-p-name">Nome Medico</p>
-            <img class="user-img-chevron" src="./src/img/chevron.svg" alt="" />
+            <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
           </div>
         </div>
       </div>
