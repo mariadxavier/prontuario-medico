@@ -3,7 +3,6 @@
     private string $nome;
     private string $cpf;
     private string $telefone;
-    private string $cep;
     private string $endereco;
     private string $sexo;
     private string $nascimento;
@@ -17,11 +16,10 @@
     private string $alergias;
     private string $observacoes;
 
-    public function __construct($nome, $cpf, $telefone, $cep, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias, $observacoes){
+    public function __construct($nome, $cpf, $telefone, $endereco, $sexo, $nascimento, $pai, $mae, $raca, $email, $sangue, $altura, $peso, $alergias, $observacoes){
       $this->nome = strtoupper($nome);
       $this->cpf = strtoupper($cpf);
       $this->telefone = strtoupper($telefone);
-      $this->cep = strtoupper($cep);
       $this->endereco = strtoupper($endereco);
       $this->sexo = strtoupper($sexo);
       $this->nascimento = strtoupper($nascimento);
@@ -44,9 +42,6 @@
     }
     public function getTelefone(){
       return $this->telefone;
-    }
-    public function getCep(){
-      return $this->cep;
     }
     public function getEndereco(){
       return $this->endereco;

@@ -79,7 +79,6 @@
           "nome" => $newPaciente->getNome(),
           "cpf" => $newPaciente->getCpf(),
           "telefone" => $newPaciente->getTelefone(),
-          "cep" => $newPaciente->getCep(),
           "endereco" =>$newPaciente->getEndereco(),
           "sexo" => $newPaciente->getSexo(),
           "nascimento" =>$newPaciente->getNascimento(),
