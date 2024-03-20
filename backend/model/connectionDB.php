@@ -5,7 +5,7 @@
   require_once "Medico.php";
   use Kreait\Firebase\Factory;
   use Ramsey\Uuid\Uuid;
-
+  date_default_timezone_set('America/Sao_Paulo');
   class ConnectionDB {
     private Factory $factoryDB;
     private $connectionDB;
@@ -159,6 +159,8 @@
     //cria uma nova consulta no banco de dados
     public function setNewConsulta(Consulta $newConsulta){
       $uuid = Uuid::uuid4();
+      $data = date("d/m/Y");
+      $hora = date("H:i:s");
       try{
         $consulta = $this->connectionDB->getReference("Consulta/".$uuid)->set([
           "id" => $uuid,
@@ -168,7 +170,9 @@
           "anamnese" => $newConsulta->getAnamnese(),
           "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
           "diagnostico" => $newConsulta->getDiagnostico(),
-          "procedimentos" => $newConsulta->getProcedimentos()
+          "procedimentos" => $newConsulta->getProcedimentos(),
+          "data" => $data,
+          "hora" => $hora
         ]);
         if(!$consulta){
           throw new Exception("Falha ao criar a consulta.");
