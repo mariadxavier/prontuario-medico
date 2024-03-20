@@ -93,7 +93,7 @@ main {
     align-items: center;
 }
 
-.aside-dados-paciente .aside-buttons button {
+.aside-dados-paciente .aside-buttons button, .aside-buttons #button-busca {
     border: 0px none transparent;
     background-color: var(--color-mediumAqua);
     color: var(--color-white);
@@ -101,6 +101,8 @@ main {
     padding: 10px;
     width: 90%;
     font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .aside-dados-paciente .aside-buttons button:hover {
