@@ -24,45 +24,45 @@
     <script src="./src/js/clique-header-logo.js" defer></script>
   </head>
   <body>
-  <header>
-      <div class="header-container">
-        <div class="header-div-logo">
-          <img src="./src/img/logo.svg" alt="" />
-          <p class="logo-p-name">UniSOS</p>
+    <header>
+        <div class="header-container">
+            <div class="header-div-logo">
+            <img src="./src/img/logo.svg" alt="" />
+            <p class="logo-p-name">UniSOS</p>
+            </div>
+            <div class="header-div-container">
+            <ul class="container-ul-links">
+                <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
+            </ul>
+            <div class="container-div-user">
+                <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
+            </div>
+            </div>
         </div>
-        <div class="header-div-container">
-          <ul class="container-ul-links">
-            <li class="links-li-link" id="novo-paciente-link"><a href="pagina-cadastro.php">Novo Paciente</a></li>
-          </ul>
-          <div class="container-div-user">
-            <p class="user-p-name"><?php echo $medico["nome"]; ?></p>
-          </div>
-        </div>
-      </div>
-    </header>
+        </header>
     <main>
       <div class="mainDiv">
             <aside class="aside-dados-paciente">
-            <h2 class="aside-title">DADOS</h2>
-            <div class="aside-conteudo">
-            <nav class="aside-nav-dados-paciente">
-                <ul>
-                <li
-                    id="aside-select-pessoal"
-                    class="aside-select aba-selecionada"
-                >
-                    PESSOAL
-                </li>
-                <li id="aside-select-historico" class="aside-select">
-                    HISTÓRICO
-                </li>
-                </ul>
-            </nav>
-            <div class="aside-buttons">
-                <button id="button-consulta" class="aside-select">CONSULTA</button>
-                <a href="home.php" id="button-busca">BUSCA</a>
-            </div>
-            </div>
+                <h2 class="aside-title">DADOS</h2>
+                <div class="aside-conteudo">
+                <nav class="aside-nav-dados-paciente">
+                    <ul>
+                    <li
+                        id="aside-select-pessoal"
+                        class="aside-select aba-selecionada"
+                    >
+                        PESSOAL
+                    </li>
+                    <li id="aside-select-historico" class="aside-select">
+                        HISTÓRICO
+                    </li>
+                    </ul>
+                </nav>
+                <div class="aside-buttons">
+                    <button id="button-consulta" class="aside-select">CONSULTA</button>
+                    <a href="home.php" id="button-busca">BUSCA</a>
+                </div>
+                </div>
             </aside>
             <div class="div-show-dados-paciente">
                 <div class="dados-pessoais-paciente container">
@@ -218,17 +218,23 @@
                 <div class="container historico-paciente" style="display: none">
                     <div class="container-historico" >                        
                         <?php 
-
                             try
                             { if(!is_array($collectionConsulta)){
                                 throw new Exception ("Sem consultas cadastradas");
                                 } else {
-                                    foreach($collectionConsulta as $consulta) {                            
-                                    // para cada consulta retornada do paciente consulta, imprime essa div, com os dados da mesma:
+                                    foreach($collectionConsulta as $consulta) {   
+                                        $remedios = "";
+                                        $prescricao = "";
+                                        foreach($consulta["prescricao"] as $chave => $valor) {
+                                            $remedios .= "{$chave}; ";
+                                            $prescricao .= "{$chave}: {$valor}; <br>";
+                                        };
+                                    // para cada consulta retornada do paciente consulta, imprime essa div, com os dados da mesma:                                 
+                                                                                                    
                                     echo '<div class="item-historico consulta">
                                     <div class="area-title-consulta">
                                         <h2 class="title-consulta">'.$consulta["diagnostico"].'</h2>
-                                        <p class="data-consulta">16/03/2024</p> 
+                                        <p class="data-consulta">'. $consulta["data"].'</p> 
                                     </div>
                                     <div class="conteudo-consulta">
                                         <div class="item-minimizado">
@@ -239,7 +245,8 @@
                                             
                                             <div class="area-label-consulta">
                                                 <label for="medicacao-utilizada">Medicação Utilizada:</label>
-                                                <p name="medicacao-utilizada">'.$consulta["prescricao"]["remedios"].'</p>                                
+                                                <p name="medicacao-utilizada">'. $remedios .'
+                                                </p>                                
                                             </div>       
                                             <button class="button-ver-tudo">VER TUDO</button>
                                         </div>
@@ -247,32 +254,25 @@
                                         <div class="item-maximizado">
                                             <div class="area-label-consulta-textarea">
                                                 <label for="sintomas">Sintomas:</label>
-                                                <p name="sintomas" class="textarea-consulta">
-                                                '.$consulta["anamnese"]["sintomas"].'
+                                                <p name="sintomas" class="textarea-consulta">Sintomas
                                                 </p>                                
                                             </div>
-                
-                                            <div class="area-label-consulta-textarea">
-                                                <label for="procedimentos">Procedimentos:</label>
-                                                <p name="procedimentos" class="textarea-consulta">'.$consulta["procedimentos"].'</p>                                
-                                            </div>
-                
+                                            
                                             <div class="area-label-consulta-textarea">
                                                 <label for="prescricao">Prescrição:</label>
-                                                <p name="prescricao" class="textarea-consulta">'.$consulta["prescricao"]["remedios"].' '.$consulta["prescricao"]["tempo"].'</p>                                
+                                                <p name="prescricao" class="textarea-consulta">'.$prescricao.'</p>                                
                                             </div>
 
                                             <div class="area-label-consulta-textarea">
                                                 <label for="antecedentes">Fatores de risco/Antecedentes:</label>
-                                                <p name="antecedentes" class="textarea-consulta">
-                                                '.$consulta["anamnese"]["antecedentes"].'
+                                                <p name="antecedentes" class="textarea-consulta">Antecedentes
                                                 </p>                                
                                             </div>
 
                                             <div class="area-label-consulta-textarea">
                                                 <label for="contraIndicacoes">Contra-indicações:</label>
                                                 <p name="contraIndicacoes" class="textarea-consulta">
-                                                '.$consulta["anamnese"]["contraIndicacoes"].'
+                                                Contra Indicações
                                                 </p>                                
                                             </div>
                 

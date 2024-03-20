@@ -79,7 +79,6 @@
           "nome" => $newPaciente->getNome(),
           "cpf" => $newPaciente->getCpf(),
           "telefone" => $newPaciente->getTelefone(),
-          "cep" => $newPaciente->getCep(),
           "endereco" =>$newPaciente->getEndereco(),
           "sexo" => $newPaciente->getSexo(),
           "nascimento" =>$newPaciente->getNascimento(),
@@ -170,7 +169,6 @@
           "anamnese" => $newConsulta->getAnamnese(),
           "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
           "diagnostico" => $newConsulta->getDiagnostico(),
-          "procedimentos" => $newConsulta->getProcedimentos(),
           "data" => $data,
           "hora" => $hora
         ]);

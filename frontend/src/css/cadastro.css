@@ -159,7 +159,7 @@ main {
 
 .area-caracteristicas-paciente .caracteristicas-paciente {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
     grid-template-columns: 1fr 1fr 1fr;
     /* margin-top: 20px; */
 }
@@ -169,13 +169,13 @@ main {
     grid-column: 1/4;
 }
 
-.caracteristicas-paciente .item-caracteristicas-paciente:nth-child(8) {
-    grid-row: 4;
+.caracteristicas-paciente .item-caracteristicas-paciente:nth-child(9) {
+    grid-row: 5;
     grid-column: 1/4;
 }
 
 .caracteristicas-paciente .item-caracteristicas-paciente:last-child {
-    grid-row: 5;
+    grid-row: 6;
     grid-column: 1/4;
 }
 
