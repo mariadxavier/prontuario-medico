@@ -60,7 +60,7 @@
 
 
 
-                <form class="dados-pessoais-paciente cadastro-paciente container">
+                <form class="dados-pessoais-paciente cadastro-paciente container" method="post">
                     <div class="area-caracteristicas-paciente">
                     <img
                         id="pacient-profile-img"
@@ -74,9 +74,16 @@
                         </label>
                         <input type="text" name="nome" required>
                         </div>
+
+                        <div class="item-caracteristicas-paciente">
+                        <label class="label-dados-paciente" for="nome-paciente"
+                            >CPF:
+                        </label>
+                        <input type="text" name="cpf" required>
+                        </div>
         
                         <div class="item-caracteristicas-paciente">
-                        <label class="label-dados-paciente" for="idade-paciente"
+                        <label class="label-dados-paciente" for="dataNascimento"
                             >DN:
                         </label>
                         <input type="text" name="dataNascimento" placeholder="dd/mm/aaaa" id="" required>
@@ -87,7 +94,7 @@
                             >Sexo:
                         </label>
                         <select name="sexo" required>
-                            <option value="m">M</option>
+                            <option value="m" selected>M</option>
                             <option value="f">F</option>
                         </select>
                         </div>
@@ -99,7 +106,7 @@
                         <select name="raca" required>
                             <option value="branco">Branco</option>
                             <option value="preto">Preto</option>
-                            <option value="pardo">Pardo</option>
+                            <option value="pardo" selected>Pardo</option>
                             <option value="indigena">Indígena</option>
                             <option value="amarelo">Amarelo</option>
                         </select>
@@ -124,7 +131,7 @@
                             >Sangue:
                         </label>
                         <select name="sangue" required>
-                            <option value="o-positivo">O+</option>
+                            <option value="o-positivo" selected>O+</option>
                             <option value="o-negativo">O-</option>
                             <option value="a-positivo">A+</option>
                             <option value="a-negativo">A-</option>
@@ -156,7 +163,7 @@
                         <label class="label-dados-paciente" for="celular-paciente"
                         >Celular:
                         </label>
-                        <input type="text" name="name" id="" placeholder="00000000000" required>
+                        <input type="text" name="celular-paciente" id="" placeholder="00000000000" required>
                     </div>
         
                     <div class="item-contatos-paciente">
@@ -176,21 +183,34 @@
         
                     <div class="container-alergias-paciente">
                     <h4 class="title-alergias-paciente">ALERGIAS:</h4>
-                        <input type="text" name="alergias" id="">
+                        <input type="text" name="alergias" id="" required>
                     </div>
         
                     <div class="observacoes-paciente">
                     <h4 class="title-observacoes-paciente">Observações:</h4>
-                    <!-- <p class="conteudo-observacoes-paciente"> -->
-                        <input type="text" class="conteudo-observacoes-paciente" name="alergias" id="" placeholder="Doenças crônicas, Deficiências Visíveis/Invisíveis">
-                    <!-- </p> -->
+                        <input type="text" class="conteudo-observacoes-paciente" name="observacoes" id="" placeholder="Doenças crônicas, Deficiências Visíveis/Invisíveis" required>
                     </div>
                     <button type="submit">Cadastrar Paciente</button>
                 </form>
+                <?php 
+                    $nomePaciente = $_POST["nome"];
+                    $cpfPaciente = $_POST["cpf"];
+                    $dnPaciente = $_POST["dataNascimento"];
+                    $sexoPaciente = $_POST["sexo"];
+                    $racaPaciente = $_POST["raca"];
+                    $pesoPaciente = $_POST["peso"];
+                    $alturaPaciente = $_POST["altura"];
+                    $sanguePaciente = $_POST["sangue"];
+                    $maePaciente = $_POST["mae"];
+                    $paiPaciente = $_POST["pai"];
+                    $celularPaciente = $_POST["celular-paciente"];
+                    $emailPaciente = $_POST["email"];
+                    $endercoPaciente = $_POST["endereco"];
+                    $alergiasPaciente = $_POST["alergias"];
+                    $observacoesPaciente = $_POST["observacoes"];
 
-
-
-
+                    $db->setNewPaciente(new Paciente($nomePaciente, $cpfPaciente, $celularPaciente, $endercoPaciente, $sexoPaciente, $dnPaciente, $paiPaciente, $maePaciente, $racaPaciente, $emailPaciente, $sanguePaciente, $alturaPaciente, $pesoPaciente, $alergiasPaciente, $observacoesPaciente));
+                ?>
             </div>
        </div>
     </main>
