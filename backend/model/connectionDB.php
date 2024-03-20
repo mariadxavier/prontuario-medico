@@ -170,7 +170,6 @@
           "anamnese" => $newConsulta->getAnamnese(),
           "dadosAdicionais" => $newConsulta->getDadosAdicionais(),
           "diagnostico" => $newConsulta->getDiagnostico(),
-          "procedimentos" => $newConsulta->getProcedimentos(),
           "data" => $data,
           "hora" => $hora
         ]);
