@@ -528,11 +528,10 @@
                                         "texts" => ["contra-indicacoes-outros" => $_POST["contra-indicacoes-outros"]]]
                                     ];
 
-                                    $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], $anamnese, array($_POST["query"]), $diagnostico, $dadosAdicionais);
+                                    $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], array($_POST["query"]),$anamnese, $dadosAdicionais,$diagnostico);
                                     $db->setNewConsulta($novaConsulta);
-                                    // unset($_POST["query"]);
-                 
-                                    
+                                    unset($_POST["query"]);
+                                    echo $_POST["query"];
                                 }
                             ?>
                             <button type="submit">Salvar</button>
