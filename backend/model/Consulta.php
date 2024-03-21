@@ -3,7 +3,7 @@
   class Consulta {
     private string $idMedico;
     private string $idPaciente;
-    private array $prescricao;
+    private string $prescricao;
     private array $anamnese;
     private string $dadosAdicionais;
     private string $diagnostico;
