@@ -2,7 +2,10 @@
  ## Descrição do projeto 
 ---
 <p align="justify">
- Projeto em desenvolvimento para a disciplina programação BackEnd do curso técnico Análise e desenvolvimento de sistemas na instituição Proz Educação. O objetivo principal deste projeto é desenvolver um site dinâmico de um prontuário médico eletrônico , proporcionando uma ferramenta para que profissionais de saúde armazenem e acessem informações clínicas dos pacientes de forma segura .
+
+ Projeto em desenvolvimento para a disciplina programação BackEnd do curso técnico Análise e desenvolvimento de sistemas na instituição 
+ Proz Educação. O objetivo principal deste projeto é desenvolver um site dinâmico de um prontuário médico eletrônico , proporcionando uma
+ ferramenta para que profissionais de saúde armazenem e acessem informações clínicas dos pacientes de forma segura .
 
 </p> 
 <p align="center">
@@ -30,7 +33,6 @@
 - `FIGMA`
 - `TRELLO`
 
----
 ## 📁 Acesso ao projeto
 ---
  Você pode acessar os arquivos do projeto clicando [aqui](https://github.com/mariadxavier/prontuario-medico).
