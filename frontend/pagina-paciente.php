@@ -470,14 +470,16 @@
                                     <label for="informacoes-adicionais">informações Adicionais:</label>
                                     <textarea type="text" name="informacoes-adicionais" id="" placeholder="Sintomas e observações"></textarea>
                                 </div>
-                                <div>
+                                <div id="container-medicamentos">
                                     <label for="medicamento">Medicamento:</label>
-                                    <textarea type="text" name="medicamento" id="" placeholder="Medicamento, quantos dias, quantidade"></textarea>
+                                    <textarea type="text" name="medicamento" id="medicamento" placeholder="Medicamento"></textarea>
+                                    <textarea type="text" name="medicamento" id="prescricao" placeholder="Prescrição"></textarea>
+                                    <div id="medicamentos-button">+</div>
                                 </div>
-                                <div id="diagnostico-questions-retorno">
-                                    <label for="" id="question-retorno">Consulta de Retorno?</label>
-                                    <textarea type="text" name="retorno" name="input-antecedentes" id="retorno-input-protocolo"></textarea>
+                                <div id="retorno-medicamentos">
+                                    <textarea type="text" name="retorno" name="retorno-medicamentos" id="medicamentos-textarea-show"></textarea>
                                 </div>
+                                <input type="text" name="query" id="inputInv" style="display: none;">
                             </div>
 
                         </div>
@@ -508,8 +510,11 @@
                                 $_POST['sangramento']  = (isset($_POST['sangramento']))  ? true : null;
                                 $_POST['coagulopatia']  = (isset($_POST['coagulopatia']))  ? true : null;
                                 $_POST['contra-indicacoes-outros']  = (isset($_POST['contra-indicacoes-outros']))  ? true : null;
+
+                                $diagnostico  = (isset($_POST['diagnostico']))  ? $_POST['diagnostico'] : null;
+                                $dadosAdicionais  = (isset($_POST['informacoes-adicionais']))  ? $_POST['informacoes-adicionais'] : null;
                                 
-                                if(isset($_GET["retorno"])) {
+                                if(isset($_POST["query"])) {
                                     $anamnese = [
                                         "queixa" => 
                                         ["queixaAtual" => $_POST["queixa-atual"], "queixaPregressa" => $_POST["queixa-pregressa"]], 
@@ -522,12 +527,15 @@
                                         ["checkbox" => ["traumatismos" => $_POST["traumatismos"], "cirurgias" => $_POST["cirurgias"], "ulcera" => $_POST["ulcera"], "sangramento" => $_POST["sangramento"], "coagulopatia" => $_POST["coagulopatia"]], 
                                         "texts" => ["contra-indicacoes-outros" => $_POST["contra-indicacoes-outros"]]]
                                     ];
-                 
 
-                                    // new Consulta($idMedico, $usuarioEncontrado["id"], $prescricao, $anamnese, $diagnostico, $dadosAdicionais, $procedimentos);
+                                    $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], $anamnese, array($_POST["query"]), $diagnostico, $dadosAdicionais);
+                                    $db->setNewConsulta($novaConsulta);
+                                    // unset($_POST["query"]);
+                 
+                                    
                                 }
                             ?>
-                            <button data-consulta="button" type="submit">Salvar</button>
+                            <button type="submit">Salvar</button>
                         </div>
                     </div>
 

@@ -530,6 +530,10 @@ main {
     gap: 20px;
     
 }
+.container-cadastro-consulta .form-div {
+    display: grid;
+    gap: 10px;
+}
 .container-cadastro-consulta .form-div-selects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -602,6 +606,39 @@ main {
 #question-retorno {
    min-width: 210px;
 }
+.form-div-questions #container-medicamentos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.form-div-questions #container-medicamentos #medicamento {
+    width: 40%;
+}
+#medicamentos-textarea-show {
+    height: 10vh;
+}
+#medicamentos-button {
+    background: var(--color-blue);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    padding: 0px 13px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+#medicamentos-button:hover {
+    background: var(--color-mediumAqua);
+}
+#medicamentos-button::-webkit-scrollbar {
+    width: 15px;               /* width da barra de rolagem */
+  }
+  
+  #medicamentos-button::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightBlue);    /* cor do scroll */
+    border-radius: 20px;       /* borda scroll */
+    border: 3px solid var(--color-white);  
+  }
 
 /* Fim Diagnóstico */
 
