@@ -7,7 +7,7 @@ main {
   background-image: url(../img/bg-index.png);
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 5vh 5vw;
+  padding: 5vh 10vw;
 }
 
 /* Area principal: */
@@ -93,7 +93,7 @@ main {
     align-items: center;
 }
 
-.aside-dados-paciente .aside-buttons button {
+.aside-dados-paciente .aside-buttons button, .aside-buttons #button-busca {
     border: 0px none transparent;
     background-color: var(--color-mediumAqua);
     color: var(--color-white);
@@ -101,6 +101,8 @@ main {
     padding: 10px;
     width: 90%;
     font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .aside-dados-paciente .aside-buttons button:hover {
@@ -122,10 +124,23 @@ main {
 
 /* dados pessoais: */
 .div-show-dados-paciente .dados-pessoais-paciente {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     height: 100%;
     padding: 20px 30px;    
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    overflow-y: scroll;
+}
+
+.div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar {
+    width: 10px;   
+    margin: 5px 10px 0 0;            /* width da barra de rolagem */
+}
+
+.div-show-dados-paciente .dados-pessoais-paciente::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightBlue-opacity);    /* cor do scroll */
+    border-radius: 20px;       /* borda scroll */
+    border: 3px solid var(--color-white);  
 }
 
 .dados-pessoais-paciente .area-caracteristicas-paciente {
@@ -161,6 +176,12 @@ main {
     width: 100%;
     border-radius: 100px;
     background: var(--color-darkAqua);
+    margin-bottom: 5px;
+}
+
+.caracteristicas-paciente .item-caracteristicas-paciente:nth-child(8) {
+    grid-row: 4;
+    grid-column: 1/4;
 }
 
 .caracteristicas-paciente .item-caracteristicas-paciente:last-child {
@@ -236,7 +257,7 @@ main {
 .observacoes-paciente .conteudo-observacoes-paciente {
     background-color: var(--color-blue-opacity);
     border-radius: 20px;
-    width: fit-content;
+    width: 100%;
     padding: 10px;
     font-weight: 300;
     margin-top: -10px;
@@ -268,7 +289,7 @@ main {
     background-color: var(--color-lightBlue-opacity);    /* cor do scroll */
     border-radius: 20px;       /* borda scroll */
     border: 3px solid var(--color-white);  
-  }
+}
 
 .historico-paciente .item-historico {
     width: 100%;
@@ -301,7 +322,7 @@ main {
     height: 70px;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 80% 20%;
     align-items: center;
 }
 
@@ -361,4 +382,284 @@ main {
     filter: brightness(1.3);
 }
 /* fim area de historico */
+
+
+/* Consulta: */
+.consulta-paciente {
+    height: 100%;
+}
+
+[data-consulta="divs"] {
+    display: none;
+} 
+
+/* Estilos divs gerais */
+.div-selecionada {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 35px;
+    width: 100%;
+}
+.container-cadastro-consulta {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    height: 100%;
+    width: 100%;
+}
+
+.div-selecionada button {
+    align-self: flex-end;
+    position: relative;
+    bottom: 0;
+
+    padding: 5px 60px;
+    border: none;
+    background: var(--color-mediumAqua);
+    border-radius: 10px;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .3s;
+
+}
+.div-selecionada button:hover {
+    background: var(--color-blue);
+}
+/* Fim estilos divs gerais */
+
+/* Anamnese */
+.anamnese-div-container .container-cadastro-consulta {
+    gap: 20px;
+}
+
+.anamnese-div-title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    
+}
+.anamnese-div-title h1 {
+    background: var(--color-blue);
+    padding: 0px 60px;
+    border-radius: 10px;
+    color: var(--color-white);
+    align-self: center;
+}
+.anamnese-div-title .title-div-informations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 10px;
+}
+.anamnese-div-title .title-div-informations .area-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.anamnese-div-title .title-div-informations div label {
+    font-size: 1.2rem;
+}
+
+.anemnese-space-bar {
+    height: 4px;
+    background: var(--color-mediumAqua);
+    width: 100%;
+    border-radius: 10px;
+}
+
+.ananmese-div-queixa {
+    display: flex;
+    flex-direction: column;
+    /* background: red; */
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+}
+.ananmese-div-queixa h1 {
+    font-size: 1.8rem;
+}
+.ananmese-div-queixa .form-div {
+    display: grid;
+    width: 100%;
+    gap: 8px;
+}
+.ananmese-div-queixa .form-div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.ananmese-div-queixa .form-div div textarea {
+    height: 41px;
+    border-radius: 12px;
+    border: none;
+    background: var(--color-light-gray);
+    width: 100%;
+    padding: 8px;
+    resize: none;
+}
+.anamnese-div-container .form-div label {
+    font-size: 1.2rem;
+}
+/* Fim Anamnese */
+
+/* Contra-Indicações */
+.container-cadastro-consulta {
+    gap: 20px;
+}
+.container-cadastro-consulta h1 {
+    background: var(--color-blue);
+    padding: 0px 30px;
+    border-radius: 10px;
+    color: var(--color-white);
+    align-self: center;
+}
+.container-cadastro-consulta form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.container-cadastro-consulta .form-div {
+    display: grid;
+    gap: 20px;
+}
+.container-cadastro-consulta .form-div-selects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: end;
+    align-items: center;
+    
+    gap: 10px;
+    padding: 0 3vw;
+}
+.container-cadastro-consulta .form-div-selects .area-label textarea {
+    height: 20px;
+    width: 20px;
+}
+
+.container-cadastro-consulta .form-div-selects .area-label label, .form-div-questions label {
+    font-size: 1.2rem;
+}
+.container-cadastro-consulta .form-div-questions textarea {
+    border-radius: 12px;
+}
+
+.container-cadastro-consulta .form-div-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.container-cadastro-consulta .form-div-questions div {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 5px;
+}
+.container-cadastro-consulta .form-div-questions div textarea {
+    height: 41px;
+    border-radius: 12px;
+    border: none;
+    background: var(--color-light-gray);
+    width: 100%;
+    padding: 8px;
+
+    font-size: 1rem;
+    resize: none;
+}
+.container-cadastro-consulta .area-label input {
+    height: 20px;
+    width: 20px;
+}
+
+/* Diagnóstico */
+.diagnostico-div-container .container-cadastro-consulta .form-div-questions div {
+   display: grid;
+}
+.diagnostico-div-container .container-cadastro-consulta .title-div-informations {
+    display: flex;
+    justify-content: space-between;
+}
+.diagnostico-div-container .container-cadastro-consulta .title-div-informations .informations-div-additional {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.diagnostico-div-container .container-cadastro-consulta .form-div-questions {
+    gap: 15px;
+}
+
+.diagnostico-div-container .container-cadastro-consulta .title-div-informations .informations-div-additional .area-label {
+    display: flex;
+}
+#diagnostico-questions-retorno {
+    display: flex;
+    width: 100%;
+}
+#diagnostico-questions-retorno .retorno-div-container {
+    display: flex;
+}
+#question-retorno {
+   min-width: 210px;
+}
+.form-div-questions #container-medicamentos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.form-div-questions #container-medicamentos #medicamento {
+    width: 40%;
+}
+#medicamentos-textarea-show {
+    height: 10vh;
+}
+#medicamentos-button {
+    background: var(--color-blue);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-white);
+    padding: 0px 13px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+#medicamentos-button:hover {
+    background: var(--color-mediumAqua);
+}
+#medicamentos-button::-webkit-scrollbar {
+    width: 15px;               /* width da barra de rolagem */
+  }
+  
+  #medicamentos-button::-webkit-scrollbar-thumb {
+    background-color: var(--color-lightBlue);    /* cor do scroll */
+    border-radius: 20px;       /* borda scroll */
+    border: 3px solid var(--color-white);  
+  }
+
+/* Fim Diagnóstico */
+
+/* Fim Contra-Indicações */
+
+
+/* Fim Consulta */
+
+
 /* fim area de mostra de dados */
+
+/* Por enquanto: */
+.area-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

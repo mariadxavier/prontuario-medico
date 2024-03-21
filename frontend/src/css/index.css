@@ -5,7 +5,7 @@ main {
     background-image: url(../img/bg-index.png);
     background-size: 100%;
     background-repeat: no-repeat;
-    padding: 5vh 5vw;
+    padding: 5vh 10vw;
     height: 83vh;
 }
 
@@ -24,12 +24,12 @@ main {
 }
 
 .mainDiv-imgArea img {
-    width: 50%;
+    width: 70%;
 }
 
 .mainDiv .mainDiv-formArea {
     width: 50%;
-    background-color: var(--color-bgLightBlue-opacity);
+    background-color: var(--color-lightBlue);
     padding: 2rem;
     border-radius: 0 20px 20px 0;
     display: flex;
@@ -67,7 +67,7 @@ main {
 .btn-submit-login {
     border: 0px none transparent;
     border-radius: 30px;
-    background-color: var(--color-mediumBlue);
+    background-color: var(--color-blue);
     color: var(--color-white);
     font-weight: 700;
     font-size: 1.5rem;
@@ -78,6 +78,6 @@ main {
 
 .btn-submit-login:hover {
     cursor: pointer;
-    background-color: var(--color-blue);
+    background-color: var(--color-darkAqua);
     transition: 0.4s ease-in-out;
 }
