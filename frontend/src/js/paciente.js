@@ -6,4 +6,6 @@ import initNovaPrescricao from './modules/prescricao.js';
 initTrocaConteudo();
 initTrocaDivConsulta();
 initAbrirHistorico();
+
 initNovaPrescricao()
+

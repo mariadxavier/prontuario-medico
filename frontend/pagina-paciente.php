@@ -468,6 +468,7 @@
                                 <div id="retorno-medicamentos">
                                     <textarea type="text" name="retorno" name="retorno-medicamentos" id="medicamentos-textarea-show"></textarea>
                                 </div>
+                                <input type="text" name="query" id="inputInv" style="display: none;">
                             </div>
 
                         </div>
@@ -502,7 +503,9 @@
                                 $diagnostico  = (isset($_POST['diagnostico']))  ? $_POST['diagnostico'] : null;
                                 $dadosAdicionais  = (isset($_POST['informacoes-adicionais']))  ? $_POST['informacoes-adicionais'] : null;
                                 
-                                if(isset($_POST["retorno"])) {
+
+                                if(isset($_POST["query"])) {
+
                                     $anamnese = [
                                         "queixa" => 
                                         ["queixaAtual" => $_POST["queixa-atual"], "queixaPregressa" => $_POST["queixa-pregressa"]], 
@@ -516,11 +519,12 @@
                                         "texts" => ["contra-indicacoes-outros" => $_POST["contra-indicacoes-outros"]]]
                                     ];
 
+
                                     $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], $_POST["retorno"],$anamnese, $dadosAdicionais,$diagnostico);
                                     $db->setNewConsulta($novaConsulta);
                                 }
                             ?>
-                            
+
                         </div>
                         <button type="submit">Salvar</button>
                     </div>
