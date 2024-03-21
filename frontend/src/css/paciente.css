@@ -437,7 +437,7 @@ main {
 
 /* Anamnese */
 .anamnese-div-container .container-cadastro-consulta {
-    gap: 35px;
+    gap: 20px;
 }
 
 .anamnese-div-title {
@@ -532,7 +532,7 @@ main {
 }
 .container-cadastro-consulta .form-div {
     display: grid;
-    gap: 10px;
+    gap: 20px;
 }
 .container-cadastro-consulta .form-div-selects {
     display: grid;
@@ -562,6 +562,8 @@ main {
 }
 .container-cadastro-consulta .form-div-questions div {
     display: flex;
+    /* align-items: center;
+    justify-content: center; */
     gap: 5px;
 }
 .container-cadastro-consulta .form-div-questions div textarea {
@@ -574,6 +576,10 @@ main {
 
     font-size: 1rem;
     resize: none;
+}
+.container-cadastro-consulta .area-label input {
+    height: 20px;
+    width: 20px;
 }
 
 /* Diagnóstico */
@@ -593,6 +599,7 @@ main {
 .diagnostico-div-container .container-cadastro-consulta .form-div-questions {
     gap: 15px;
 }
+
 .diagnostico-div-container .container-cadastro-consulta .title-div-informations .informations-div-additional .area-label {
     display: flex;
 }
