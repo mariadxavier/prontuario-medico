@@ -223,12 +223,6 @@
                                 throw new Exception ("Sem consultas cadastradas");
                                 } else {
                                     foreach($collectionConsulta as $consulta) {   
-                                        $remedios = "";
-                                        $prescricao = "";
-                                        foreach($consulta["prescricao"] as $chave => $valor) {
-                                            $remedios .= "{$chave}; ";
-                                            $prescricao .= "{$chave}: {$valor}; <br>";
-                                        };
                                     // para cada consulta retornada do paciente consulta, imprime essa div, com os dados da mesma:                                 
                                                                                                     
                                     echo '<div class="item-historico consulta">
@@ -244,8 +238,8 @@
                                             </div>
                                             
                                             <div class="area-label-consulta">
-                                                <label for="medicacao-utilizada">Medicação Utilizada:</label>
-                                                <p name="medicacao-utilizada">'. $remedios .'
+                                                <label for="medicacao-utilizada">Prescrição:</label>
+                                                <p name="medicacao-utilizada">'.$consulta["prescricao"].'
                                                 </p>                                
                                             </div>       
                                             <button class="button-ver-tudo">VER TUDO</button>
@@ -254,13 +248,8 @@
                                         <div class="item-maximizado">
                                             <div class="area-label-consulta-textarea">
                                                 <label for="sintomas">Sintomas:</label>
-                                                <p name="sintomas" class="textarea-consulta">Sintomas
+                                                <p name="sintomas" class="textarea-consulta">'. $consulta["anamnese"]["queixa"]["queixaAtual"]. ', ' . $consulta["anamnese"]["queixa"]["queixaPregressa"]. '
                                                 </p>                                
-                                            </div>
-                                            
-                                            <div class="area-label-consulta-textarea">
-                                                <label for="prescricao">Prescrição:</label>
-                                                <p name="prescricao" class="textarea-consulta">'.$prescricao.'</p>                                
                                             </div>
 
                                             <div class="area-label-consulta-textarea">
@@ -487,8 +476,8 @@
                         <div>
                             <?php 
 
-                                $_POST['queixa-atual']  = (isset($_POST['queixa-atual']))  ? true : null;
-                                $_POST['queixa-pregressa']  = (isset($_POST['queixa-pregressa']))  ? true : null;
+                                $_POST['queixa-atual']  = (isset($_POST['queixa-atual']))  ? $_POST['queixa-atual'] : null;
+                                $_POST['queixa-pregressa']  = (isset($_POST['queixa-pregressa']))  ? $_POST['queixa-pregressa'] : null;
 
                                 $_POST['hipertensao']  = (isset($_POST['hipertensao']))  ? true : null;
                                 $_POST['tabaquismo']  = (isset($_POST['tabaquismo']))  ? true : null;
@@ -514,7 +503,9 @@
                                 $diagnostico  = (isset($_POST['diagnostico']))  ? $_POST['diagnostico'] : null;
                                 $dadosAdicionais  = (isset($_POST['informacoes-adicionais']))  ? $_POST['informacoes-adicionais'] : null;
                                 
+
                                 if(isset($_POST["query"])) {
+
                                     $anamnese = [
                                         "queixa" => 
                                         ["queixaAtual" => $_POST["queixa-atual"], "queixaPregressa" => $_POST["queixa-pregressa"]], 
@@ -528,14 +519,14 @@
                                         "texts" => ["contra-indicacoes-outros" => $_POST["contra-indicacoes-outros"]]]
                                     ];
 
-                                    $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], array($_POST["query"]),$anamnese, $dadosAdicionais,$diagnostico);
+
+                                    $novaConsulta  = new Consulta($medico["id"], $usuarioEncontrado["id"], $_POST["retorno"],$anamnese, $dadosAdicionais,$diagnostico);
                                     $db->setNewConsulta($novaConsulta);
-                                    unset($_POST["query"]);
-                                    echo $_POST["query"];
                                 }
                             ?>
-                            <button type="submit">Salvar</button>
+
                         </div>
+                        <button type="submit">Salvar</button>
                     </div>
 
                 </form>

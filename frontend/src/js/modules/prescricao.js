@@ -1,3 +1,4 @@
+
 export default function initNovaPrescricao() {
     const btnAdd = document.querySelector('#medicamentos-button');
     const mostraPrescricao = document.querySelector('#medicamentos-textarea-show');
@@ -14,4 +15,5 @@ export default function initNovaPrescricao() {
     
 
     btnAdd.addEventListener('click', newDiv);
+
 }
