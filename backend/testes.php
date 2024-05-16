@@ -11,7 +11,7 @@
 
   // $consultaObj = new Consulta("idMedico", "idPaciente", [], [], "tosse com sangue", "Ebola");
 
-  // $medicoObj = new Medico("12456789-51321-456123", "Jose de Deus", "31 99999-9999", "josezin@gmail.com", "123456789-12", "Rua Alameda das correntes N79");
+  $medicoObj = new Medico("12456789-51321-456123", "Jose de Deus", "31 99999-9999", "josezin@gmail.com", "123456789-12", "Rua Alameda das correntes N79");
   // $consultaID = $db->setNewMedico($medicoObj);
   // $consultaID = $db->setNewPaciente($pacienteObj);
   // $consultaID = $db->setNewPrescricao("241dcecb-1643-48b2-9387-9d608451ef8f", "4dd98ebb-ae6b-4b3e-a04d-d70710623d06", "137274d0-fe9c-480a-be78-9cfaf294ee12")
@@ -24,7 +24,7 @@
 // $consultaMaria = new Consulta("12456789-51321-456123", "c31f9b30-9fa8-427c-aa34-cdb13169127b", array("remedios"=>"Paracetamol", "tempo" => "A cada 8 horas"), array("sintomas"=>"Dor no ombro, membro ligeiramente fora do lugar, membro sem movimentação", "antecedentes"=>"Fratura no rádio","contraIndicacoes"=>"nenhum"), "Ombro deslocado", "Uma semana de repouso, com fisioterapia", "Recolocação do membro com Ortopedista");
 // $novaConsulta4 = $db->setNewConsulta($consultaMaria);
 
-// $teste = $db->getPacienteByNome("Maria Eduarda Xavier Vidigal");
+$teste = $db->setNewMedico($medicoObj);
 // var_dump($teste);
 
 

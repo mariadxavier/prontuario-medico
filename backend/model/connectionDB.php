@@ -11,7 +11,7 @@
     private $connectionDB;
 
     function __construct(){
-      $this->factoryDB = (new Factory())->withDatabaseUri("https://prontuario-medico-2d0af-default-rtdb.firebaseio.com/");
+      $this->factoryDB = (new Factory())->withDatabaseUri("https://prontuario-medico-5d1b4-default-rtdb.firebaseio.com/");
       $this->connectionDB = $this->factoryDB->createDatabase();
     }
 
